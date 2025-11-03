@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ ELITE TELEGRAM SHOP | Черный рынок премиум номеров</title>
+    <title>ELITE TELEGRAM SHOP | Официальный магазин номеров</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: #000000;
+            background: #0a0a0a;
             color: #ffffff;
             min-height: 100vh;
             padding: 0;
@@ -28,17 +28,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(178, 34, 34, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(10, 10, 40, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(40, 10, 10, 0.3) 0%, transparent 50%);
             z-index: -1;
-            animation: pulse 8s ease-in-out infinite;
-            transition: transform 0.1s ease;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
         }
 
         .container {
@@ -47,230 +39,146 @@
             padding: 20px;
         }
 
-        /* Хедер с анимацией */
+        /* Хедер в официальном стиле */
         .header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(139,0,0,0.7) 100%);
-            border-radius: 15px;
-            border: 1px solid #8b0000;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(15, 15, 25, 0.95) 0%, rgba(30, 15, 20, 0.9) 100%);
+            border-radius: 12px;
+            border: 1px solid #2a2a3a;
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,0,0,0.1), transparent);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
         .header h1 {
-            font-size: 3.5em;
+            font-size: 2.8em;
             margin-bottom: 15px;
-            background: linear-gradient(45deg, #ff0000, #8b0000, #ff4500);
+            background: linear-gradient(45deg, #e0e0e0, #a0a0b0, #c0c0d0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255,0,0,0.5);
-            font-weight: bold;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .header p {
-            font-size: 1.3em;
-            color: #ccc;
+            font-size: 1.1em;
+            color: #b0b0c0;
             margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255,0,0,0.3);
+            font-weight: 300;
         }
 
         .stats {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
 
         .stat-item {
-            background: rgba(139, 0, 0, 0.3);
-            padding: 12px 24px;
-            border-radius: 25px;
-            border: 1px solid #8b0000;
-            font-weight: 500;
-            color: #ffcccb;
-            box-shadow: 0 0 15px rgba(255,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255,0,0,0.3);
+            background: rgba(40, 40, 60, 0.6);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid #3a3a5a;
+            font-weight: 400;
+            color: #d0d0e0;
+            font-size: 0.9em;
         }
 
         .cart-link {
             display: inline-block;
-            background: linear-gradient(45deg, #8b0000, #ff0000);
-            color: #000;
+            background: linear-gradient(45deg, #2a4a7a, #3a5a8a);
+            color: #ffffff;
             padding: 12px 25px;
-            border-radius: 25px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             margin-top: 20px;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(255,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cart-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .cart-link:hover::before {
-            left: 100%;
+            border: 1px solid #4a6a9a;
+            font-size: 0.95em;
         }
 
         .cart-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,0,0,0.5);
+            background: linear-gradient(45deg, #3a5a8a, #4a6a9a);
+            transform: translateY(-2px);
         }
 
-        /* Фильтры с анимацией */
+        /* Фильтры в официальном стиле */
         .filters {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 25px;
-            border-radius: 15px;
+            background: rgba(20, 20, 35, 0.9);
+            padding: 20px;
+            border-radius: 10px;
             margin-bottom: 30px;
-            border: 1px solid #8b0000;
+            border: 1px solid #2a2a3a;
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
             align-items: center;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 30px rgba(255,0,0,0.1);
         }
 
         .filter-btn {
-            background: rgba(139, 0, 0, 0.3);
-            border: 1px solid #8b0000;
-            padding: 12px 24px;
-            border-radius: 25px;
+            background: rgba(40, 40, 60, 0.6);
+            border: 1px solid #3a3a5a;
+            padding: 10px 20px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-weight: 500;
-            color: #ffcccb;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .filter-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,0,0,0.2);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        .filter-btn:hover::before {
-            width: 100%;
-            height: 100%;
+            font-weight: 400;
+            color: #c0c0d0;
+            font-size: 0.9em;
         }
 
         .filter-btn.active {
-            background: linear-gradient(45deg, #ff0000, #8b0000);
-            color: #000;
-            box-shadow: 0 0 20px rgba(255,0,0,0.5);
-            border: 1px solid #ff0000;
+            background: linear-gradient(45deg, #2a4a7a, #3a5a8a);
+            color: #ffffff;
+            border: 1px solid #4a6a9a;
         }
 
         .filter-btn:hover {
-            background: rgba(255, 0, 0, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+            background: rgba(50, 50, 80, 0.8);
+            transform: translateY(-1px);
         }
 
         .refresh-btn {
-            background: linear-gradient(45deg, #8b0000, #ff0000);
-            color: #000;
+            background: linear-gradient(45deg, #2a4a7a, #3a5a8a);
+            color: #ffffff;
             border: none;
-            padding: 14px 28px;
-            border-radius: 25px;
+            padding: 12px 24px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 500;
             margin-left: auto;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .refresh-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .refresh-btn:hover::before {
-            left: 100%;
+            border: 1px solid #4a6a9a;
+            font-size: 0.9em;
         }
 
         .refresh-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,0,0,0.6);
+            background: linear-gradient(45deg, #3a5a8a, #4a6a9a);
+            transform: translateY(-2px);
         }
 
         /* Сетка товаров */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
             margin-bottom: 50px;
         }
 
-        /* Карточки товаров с анимацией */
+        /* Карточки товаров */
         .product-card {
-            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(139,0,0,0.2) 100%);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.4s ease;
-            border: 1px solid #8b0000;
+            background: linear-gradient(135deg, rgba(25, 25, 40, 0.9) 0%, rgba(35, 25, 35, 0.7) 100%);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid #2a2a3a;
             position: relative;
             overflow: hidden;
-            animation: fadeIn 0.6s ease;
-            box-shadow: 0 0 20px rgba(139,0,0,0.1);
-            backdrop-filter: blur(5px);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .product-card::before {
@@ -279,195 +187,174 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(45deg, #ff0000, #8b0000, #ff4500);
-        }
-
-        .product-card::after {
-            content: 'ELITE';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255,0,0,0.2);
-            color: #ffcccb;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.7em;
-            font-weight: bold;
+            height: 2px;
+            background: linear-gradient(45deg, #2a4a7a, #3a5a8a);
         }
 
         .product-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255,0,0,0.3);
-            border: 1px solid #ff0000;
+            transform: translateY(-5px);
+            border: 1px solid #3a5a8a;
+            box-shadow: 0 8px 25px rgba(42, 74, 122, 0.2);
         }
 
         .product-icon {
-            font-size: 3.5em;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin-bottom: 12px;
             text-align: center;
-            filter: drop-shadow(0 0 10px rgba(255,0,0,0.5));
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover .product-icon {
-            transform: scale(1.2) rotate(5deg);
-            filter: drop-shadow(0 0 20px rgba(255,0,0,0.8));
+            color: #a0a0c0;
         }
 
         .product-card h3 {
-            color: #ffcccb;
-            margin-bottom: 12px;
-            font-size: 1.4em;
-            font-weight: 600;
+            color: #e0e0f0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            font-weight: 500;
             line-height: 1.3;
         }
 
         .product-card p {
-            color: #aaa;
-            margin-bottom: 15px;
-            line-height: 1.5;
-            font-size: 0.95em;
+            color: #a0a0b0;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            font-size: 0.9em;
+            min-height: 40px;
         }
 
         .product-meta {
             display: flex;
             justify-content: space-between;
-            margin: 15px 0;
-            font-size: 0.9em;
+            margin: 12px 0;
+            font-size: 0.85em;
         }
 
         .seller {
-            color: #ff6666;
-            font-weight: 500;
+            color: #90a0d0;
+            font-weight: 400;
         }
 
         .rating {
-            color: #ffcc00;
-            font-weight: 500;
+            color: #ffd700;
+            font-weight: 400;
         }
 
         .price-section {
-            margin: 20px 0;
+            margin: 15px 0;
             text-align: center;
         }
 
         .price {
-            font-size: 2.2em;
-            color: #ff4444;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255,0,0,0.3);
-            background: linear-gradient(45deg, #ff4444, #ff0000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 1.8em;
+            color: #90c0ff;
+            font-weight: 500;
         }
 
         .original-price {
             text-decoration: line-through;
-            color: #666;
-            font-size: 1.1em;
-            margin-top: 5px;
+            color: #606080;
+            font-size: 1em;
+            margin-top: 3px;
         }
 
         .stock-status {
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-weight: 400;
             text-align: center;
-            margin: 15px 0;
-            font-size: 0.9em;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
+            margin: 12px 0;
+            font-size: 0.85em;
+            border: 1px solid transparent;
         }
 
         .in-stock {
-            background: rgba(0, 100, 0, 0.3);
+            background: rgba(30, 80, 30, 0.3);
             color: #90ee90;
-            border-color: #006400;
+            border-color: #2d5a2d;
         }
 
         .out-of-stock {
-            background: rgba(139, 0, 0, 0.3);
-            color: #ffcccb;
-            border-color: #8b0000;
+            background: rgba(80, 30, 30, 0.3);
+            color: #ffa0a0;
+            border-color: #5a2d2d;
         }
 
         .product-source {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 15px 0;
+            margin: 12px 0;
             font-size: 0.8em;
         }
 
-        .lzt-badge {
-            background: linear-gradient(45deg, #8b0000, #ff0000);
-            color: #000;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 0.85em;
+        .official-badge {
+            background: linear-gradient(45deg, #2a4a7a, #3a5a8a);
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 0.8em;
         }
 
         .update-time {
-            color: #888;
+            color: #707090;
+            font-size: 0.8em;
+        }
+
+        /* Отзывы */
+        .reviews {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(30, 30, 45, 0.6);
+            border-radius: 8px;
+            border: 1px solid #2a2a3a;
+        }
+
+        .review-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #2a2a3a;
             font-size: 0.85em;
         }
 
-        /* Кнопки с анимацией */
+        .review-item:last-child {
+            border-bottom: none;
+        }
+
+        .review-user {
+            color: #90a0d0;
+            font-weight: 500;
+        }
+
+        .review-text {
+            color: #b0b0c0;
+            margin-top: 2px;
+        }
+
+        /* Кнопки */
         .btn {
-            background: linear-gradient(45deg, #8b0000, #ff0000);
-            color: #000;
+            background: linear-gradient(45deg, #2a4a7a, #3a5a8a);
+            color: #ffffff;
             border: none;
-            padding: 16px;
-            border-radius: 10px;
-            font-size: 1.1em;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 1em;
             cursor: pointer;
             width: 100%;
             transition: all 0.3s ease;
-            font-weight: bold;
+            font-weight: 500;
             margin: 10px 0;
-            box-shadow: 0 0 15px rgba(255,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
+            border: 1px solid #4a6a9a;
         }
 
         .btn:hover {
-            background: linear-gradient(45deg, #ff0000, #8b0000);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(255,0,0,0.6);
+            background: linear-gradient(45deg, #3a5a8a, #4a6a9a);
+            transform: translateY(-2px);
         }
 
         .btn.disabled {
-            background: #333;
-            color: #666;
+            background: #2a2a3a;
+            color: #606080;
             cursor: not-allowed;
             transform: none;
-            box-shadow: none;
-        }
-
-        .btn.disabled:hover {
-            transform: none;
-            box-shadow: none;
-        }
-
-        .btn.disabled::before {
-            display: none;
+            border: 1px solid #3a3a5a;
         }
 
         /* Уведомления */
@@ -475,92 +362,66 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(45deg, #8b0000, #ff0000);
-            color: #000;
-            padding: 20px 30px;
-            border-radius: 15px;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(255,0,0,0.5);
+            background: linear-gradient(45deg, #2a4a7a, #3a5a8a);
+            color: #ffffff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 500;
             z-index: 1000;
             display: none;
-            animation: slideIn 0.5s ease;
-            border: 2px solid #ff0000;
-            backdrop-filter: blur(10px);
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
+            border: 1px solid #4a6a9a;
+            box-shadow: 0 5px 20px rgba(42, 74, 122, 0.3);
         }
 
         /* Футер */
         .footer {
             text-align: center;
-            color: #ccc;
+            color: #a0a0b0;
             margin-top: 50px;
-            padding: 40px 30px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            border: 1px solid #8b0000;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(45deg, #ff0000, #8b0000);
+            padding: 30px;
+            background: rgba(20, 20, 35, 0.9);
+            border-radius: 10px;
+            border: 1px solid #2a2a3a;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
 
         .footer-link {
-            color: #ff6666;
+            color: #90a0d0;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 15px;
-            background: rgba(139, 0, 0, 0.3);
+            padding: 8px 16px;
+            border-radius: 6px;
+            background: rgba(40, 40, 60, 0.6);
             transition: all 0.3s ease;
-            border: 1px solid transparent;
+            border: 1px solid #3a3a5a;
+            font-size: 0.9em;
         }
 
         .footer-link:hover {
-            background: rgba(255, 0, 0, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255,0,0,0.2);
-            border: 1px solid #ff0000;
+            background: rgba(50, 50, 80, 0.8);
+            color: #b0c0f0;
         }
 
         /* Загрузка */
         .loading {
             text-align: center;
-            color: #ffcccb;
-            font-size: 1.2em;
+            color: #a0a0c0;
+            font-size: 1.1em;
             padding: 40px;
         }
 
         .loading-spinner {
-            border: 4px solid rgba(139, 0, 0, 0.3);
+            border: 3px solid rgba(42, 74, 122, 0.3);
             border-radius: 50%;
-            border-top: 4px solid #ff0000;
-            width: 40px;
-            height: 40px;
+            border-top: 3px solid #3a5a8a;
+            width: 35px;
+            height: 35px;
             animation: spin 1s linear infinite;
             margin: 0 auto 20px;
         }
@@ -572,14 +433,14 @@
 
         /* Адаптивность */
         @media (max-width: 768px) {
-            .header h1 { font-size: 2.5em; }
-            .header p { font-size: 1.1em; }
+            .header h1 { font-size: 2.2em; }
+            .header p { font-size: 1em; }
             .products-grid { grid-template-columns: 1fr; }
-            .stats { flex-direction: column; gap: 10px; }
+            .stats { flex-direction: column; gap: 8px; }
             .filters { flex-direction: column; }
             .refresh-btn { margin-left: 0; width: 100%; }
             .filter-btn { width: 100%; text-align: center; }
-            .footer-links { flex-direction: column; gap: 10px; }
+            .footer-links { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
@@ -588,13 +449,14 @@
 
     <div class="container">
         <div class="header">
-            <h1>⚡ ELITE TELEGRAM SHOP</h1>
-            <p>Номера телефонов со всего мира • Цены от 90₽ • Моментальная доставка</p>
+            <h1>ELITE TELEGRAM SHOP</h1>
+            <p>Официальный магазин номеров телефонов • Гарантия качества • Моментальная доставка</p>
             
             <div class="stats">
                 <div class="stat-item">🕒 <span id="currentTime">--:--:--</span></div>
                 <div class="stat-item">📦 Товаров: <span id="productCount">0</span></div>
                 <div class="stat-item">🛒 В корзине: <span id="cartCount">0</span></div>
+                <div class="stat-item">⭐ Рейтинг: 4.9/5</div>
             </div>
 
             <a href="cart.html" class="cart-link" id="cartLink">
@@ -604,12 +466,11 @@
 
         <div class="filters">
             <button class="filter-btn active" onclick="setFilter('all')">🎲 Все товары</button>
-            <button class="filter-btn" onclick="setFilter('in-stock')">💀 В наличии</button>
-            <button class="filter-btn" onclick="setFilter('usa')">🇺🇸 США</button>
+            <button class="filter-btn" onclick="setFilter('in-stock')">📦 В наличии</button>
+            <button class="filter-btn" onclick="setFilter('budget')">💰 Бюджетные</button>
+            <button class="filter-btn" onclick="setFilter('premium')">💎 Премиум</button>
             <button class="filter-btn" onclick="setFilter('europe')">🇪🇺 Европа</button>
             <button class="filter-btn" onclick="setFilter('asia')">🌏 Азия</button>
-            <button class="filter-btn" onclick="setFilter('premium')">💎 Премиум</button>
-            <button class="filter-btn" onclick="setFilter('budget')">💰 Бюджет</button>
             <button class="refresh-btn" onclick="loadProducts()">🔄 Обновить</button>
         </div>
 
@@ -621,13 +482,14 @@
         </div>
 
         <div class="footer">
-            <p>© 2024 ELITE TELEGRAM SHOP. Номера от 90₽ до 280₽</p>
-            <p>Моментальная доставка • Гарантия качества • Поддержка 24/7</p>
+            <p>© 2024 ELITE TELEGRAM SHOP. Официальный дистрибьютор номеров телефонов</p>
+            <p>Все номера проходят проверку качества • Гарантия замены • Круглосуточная поддержка</p>
             
             <div class="footer-links">
                 <a href="cart.html" class="footer-link">🛒 Корзина</a>
-                <a href="https://t.me/awoeg" target="_blank" class="footer-link">📞 Поддержка</a>
-                <a href="https://discord.gg/arestt" target="_blank" class="footer-link">🎮 Discord</a>
+                <a href="#" class="footer-link">📞 Техподдержка</a>
+                <a href="#" class="footer-link">📋 Гарантии</a>
+                <a href="#" class="footer-link">⚖️ Условия</a>
             </div>
         </div>
     </div>
@@ -641,14 +503,24 @@
         let allProducts = [];
         let currentFilter = 'all';
 
-        // Параллакс эффект
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.bg-animation');
-            if (parallax) {
-                parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
-        });
+        // Список отзывов
+        const reviews = [
+            {user: "Скуп NFT | 2%", text: "Быстрая доставка, номер рабочий"},
+            {user: "Geogly", text: "Качество на уровне, рекомендую"},
+            {user: "Crypto_Trader", text: "Уже третий номер покупаю, все ок"},
+            {user: "Dark_Market", text: "Приятно удивлен скоростью работы"},
+            {user: "Anon_Buyer", text: "Все четко, как и договаривались"},
+            {user: "Bitcoin_Lover", text: "Номер пришел моментально, спасибо"},
+            {user: "Shadow_Dealer", text: "Качественный сервис, буду еще брать"},
+            {user: "Crypto_Whale", text: "Лучший магазин по версии 2024"},
+            {user: "NFT_Hunter", text: "Быстро, качественно, анонимно"},
+            {user: "Blockchain_Pro", text: "Профессиональный подход к делу"}
+        ];
+
+        function getRandomReviews() {
+            const shuffled = [...reviews].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 3);
+        }
 
         function loadCartFromStorage() {
             const savedCart = localStorage.getItem('eliteTelegramCart');
@@ -686,122 +558,61 @@
             return new Promise((resolve) => {
                 setTimeout(() => {
                     resolve([
-                        // 🇺🇸 США (Премиум)
-                        {id: 1, name: "🇺🇸 USA +1 | Premium 2 Years", description: "Премиум аккаунт США, 2 года, верифицированный", price: 250, originalPrice: 400, seller: "Premium_USA", rating: 4.9, inStock: true, category: "usa premium", icon: "🇺🇸", reviews: 512},
-                        {id: 2, name: "🇺🇸 USA +1 | Business Number", description: "Бизнес номер США для компаний", price: 220, originalPrice: 350, seller: "Business_Accounts", rating: 4.8, inStock: true, category: "usa premium", icon: "💼", reviews: 287},
-                        {id: 3, name: "🇺🇸 USA +1 | 1 Year Verified", description: "Верифицированный номер, 1 год", price: 180, originalPrice: 280, seller: "Verified_US", rating: 4.7, inStock: true, category: "usa", icon: "🇺🇸", reviews: 423},
-                        {id: 4, name: "🇺🇸 USA +1 | Fresh Number", description: "Новый номер США, моментальная доставка", price: 150, originalPrice: 220, seller: "Fresh_USA", rating: 4.6, inStock: true, category: "usa", icon: "🇺🇸", reviews: 334},
-                        {id: 5, name: "🇺🇸 USA +1 | Basic Account", description: "Базовый номер США, 3 месяца", price: 120, originalPrice: 180, seller: "Basic_US", rating: 4.4, inStock: true, category: "usa budget", icon: "🇺🇸", reviews: 198},
+                        // Бюджетные номера за 70₽
+                        {id: 101, name: "🇷🇺 Russia +7 | Budget", description: "Бюджетный российский номер для базовых задач", price: 70, originalPrice: 120, seller: "Budget_Provider", rating: 4.3, inStock: true, category: "budget", icon: "🇷🇺", reviews: 89},
+                        {id: 102, name: "🇺🇦 Ukraine +380 | Economy", description: "Экономный украинский номер", price: 70, originalPrice: 110, seller: "Ukraine_Deals", rating: 4.2, inStock: true, category: "budget", icon: "🇺🇦", reviews: 67},
+                        {id: 103, name: "🇰🇿 Kazakhstan +7 | Basic", description: "Базовый казахстанский номер", price: 70, originalPrice: 115, seller: "KZ_Provider", rating: 4.1, inStock: true, category: "budget", icon: "🇰🇿", reviews: 45},
+                        {id: 104, name: "🇧🇾 Belarus +375 | Standard", description: "Стандартный белорусский номер", price: 70, originalPrice: 125, seller: "BY_Shop", rating: 4.4, inStock: true, category: "budget", icon: "🇧🇾", reviews: 78},
+                        {id: 105, name: "🇦🇿 Azerbaijan +994 | Budget", description: "Бюджетный азербайджанский номер", price: 70, originalPrice: 130, seller: "AZ_Deals", rating: 4.0, inStock: true, category: "budget", icon: "🇦🇿", reviews: 34},
 
-                        // 🇨🇦 Канада
-                        {id: 6, name: "🇨🇦 Canada +1 | Premium CA", description: "Премиум канадский номер", price: 200, originalPrice: 320, seller: "Canada_Premium", rating: 4.8, inStock: true, category: "canada premium", icon: "🇨🇦", reviews: 156},
-                        {id: 7, name: "🇨🇦 Canada +1 | Fresh CA", description: "Новый номер Канады", price: 140, originalPrice: 200, seller: "CA_Fresh", rating: 4.6, inStock: true, category: "canada", icon: "🇨🇦", reviews: 89},
+                        {id: 106, name: "🇬🇪 Georgia +995 | Economy", description: "Экономный грузинский номер", price: 70, originalPrice: 120, seller: "GE_Provider", rating: 4.2, inStock: true, category: "budget", icon: "🇬🇪", reviews: 56},
+                        {id: 107, name: "🇦🇲 Armenia +374 | Basic", description: "Базовый армянский номер", price: 70, originalPrice: 115, seller: "AM_Shop", rating: 4.1, inStock: true, category: "budget", icon: "🇦🇲", reviews: 41},
+                        {id: 108, name: "🇲🇩 Moldova +373 | Standard", description: "Стандартный молдавский номер", price: 70, originalPrice: 125, seller: "MD_Deals", rating: 4.3, inStock: true, category: "budget", icon: "🇲🇩", reviews: 29},
+                        {id: 109, name: "🇹🇯 Tajikistan +992 | Budget", description: "Бюджетный таджикский номер", price: 70, originalPrice: 130, seller: "TJ_Provider", rating: 4.0, inStock: true, category: "budget", icon: "🇹🇯", reviews: 23},
+                        {id: 110, name: "🇺🇿 Uzbekistan +998 | Economy", description: "Экономный узбекский номер", price: 70, originalPrice: 120, seller: "UZ_Shop", rating: 4.2, inStock: true, category: "budget", icon: "🇺🇿", reviews: 67},
 
-                        // 🇬🇧 Великобритания
-                        {id: 8, name: "🇬🇧 UK +44 | Business UK", description: "Бизнес номер Великобритании", price: 230, originalPrice: 380, seller: "UK_Business", rating: 4.9, inStock: true, category: "europe premium", icon: "🇬🇧", reviews: 267},
-                        {id: 9, name: "🇬🇧 UK +44 | Premium Number", description: "Премиум британский номер", price: 190, originalPrice: 290, seller: "UK_Premium", rating: 4.7, inStock: true, category: "europe premium", icon: "🇬🇧", reviews: 178},
-                        {id: 10, name: "🇬🇧 UK +44 | Standard UK", description: "Стандартный номер UK", price: 150, originalPrice: 220, seller: "UK_Standard", rating: 4.5, inStock: true, category: "europe", icon: "🇬🇧", reviews: 145},
+                        {id: 111, name: "🇰🇬 Kyrgyzstan +996 | Basic", description: "Базовый киргизский номер", price: 70, originalPrice: 115, seller: "KG_Deals", rating: 4.1, inStock: true, category: "budget", icon: "🇰🇬", reviews: 38},
+                        {id: 112, name: "🇹🇲 Turkmenistan +993 | Standard", description: "Стандартный туркменский номер", price: 70, originalPrice: 125, seller: "TM_Provider", rating: 4.0, inStock: true, category: "budget", icon: "🇹🇲", reviews: 19},
+                        {id: 113, name: "🇱🇹 Lithuania +370 | Budget", description: "Бюджетный литовский номер", price: 70, originalPrice: 140, seller: "LT_Shop", rating: 4.3, inStock: true, category: "budget europe", icon: "🇱🇹", reviews: 45},
+                        {id: 114, name: "🇱🇻 Latvia +371 | Economy", description: "Экономный латвийский номер", price: 70, originalPrice: 135, seller: "LV_Deals", rating: 4.2, inStock: true, category: "budget europe", icon: "🇱🇻", reviews: 37},
+                        {id: 115, name: "🇪🇪 Estonia +372 | Basic", description: "Базовый эстонский номер", price: 70, originalPrice: 130, seller: "EE_Provider", rating: 4.1, inStock: true, category: "budget europe", icon: "🇪🇪", reviews: 28},
 
-                        // 🇩🇪 Германия
-                        {id: 11, name: "🇩🇪 Germany +49 | Business DE", description: "Бизнес номер Германии", price: 210, originalPrice: 340, seller: "DE_Business", rating: 4.8, inStock: true, category: "europe premium", icon: "🇩🇪", reviews: 189},
-                        {id: 12, name: "🇩🇪 Germany +49 | Premium DE", description: "Премиум немецкий номер", price: 170, originalPrice: 260, seller: "DE_Premium", rating: 4.7, inStock: true, category: "europe premium", icon: "🇩🇪", reviews: 134},
-                        {id: 13, name: "🇩🇪 Germany +49 | Standard DE", description: "Стандартный номер Германии", price: 130, originalPrice: 190, seller: "DE_Standard", rating: 4.5, inStock: true, category: "europe", icon: "🇩🇪", reviews: 98},
+                        {id: 116, name: "🇨🇿 Czech +420 | Budget", description: "Бюджетный чешский номер", price: 70, originalPrice: 145, seller: "CZ_Shop", rating: 4.4, inStock: true, category: "budget europe", icon: "🇨🇿", reviews: 52},
+                        {id: 117, name: "🇸🇰 Slovakia +421 | Economy", description: "Экономный словацкий номер", price: 70, originalPrice: 140, seller: "SK_Deals", rating: 4.2, inStock: true, category: "budget europe", icon: "🇸🇰", reviews: 31},
+                        {id: 118, name: "🇭🇺 Hungary +36 | Basic", description: "Базовый венгерский номер", price: 70, originalPrice: 135, seller: "HU_Provider", rating: 4.1, inStock: true, category: "budget europe", icon: "🇭🇺", reviews: 26},
+                        {id: 119, name: "🇷🇴 Romania +40 | Standard", description: "Стандартный румынский номер", price: 70, originalPrice: 130, seller: "RO_Shop", rating: 4.3, inStock: true, category: "budget europe", icon: "🇷🇴", reviews: 48},
+                        {id: 120, name: "🇧🇬 Bulgaria +359 | Budget", description: "Бюджетный болгарский номер", price: 70, originalPrice: 125, seller: "BG_Deals", rating: 4.2, inStock: true, category: "budget europe", icon: "🇧🇬", reviews: 39},
 
-                        // 🇫🇷 Франция
-                        {id: 14, name: "🇫🇷 France +33 | Premium FR", description: "Премиум французский номер", price: 180, originalPrice: 280, seller: "FR_Premium", rating: 4.7, inStock: true, category: "europe premium", icon: "🇫🇷", reviews: 112},
-                        {id: 15, name: "🇫🇷 France +33 | Standard FR", description: "Стандартный номер Франции", price: 140, originalPrice: 200, seller: "FR_Standard", rating: 4.5, inStock: true, category: "europe", icon: "🇫🇷", reviews: 87},
+                        {id: 121, name: "🇷🇸 Serbia +381 | Economy", description: "Экономный сербский номер", price: 70, originalPrice: 120, seller: "RS_Provider", rating: 4.1, inStock: true, category: "budget europe", icon: "🇷🇸", reviews: 33},
+                        {id: 122, name: "🇭🇷 Croatia +385 | Basic", description: "Базовый хорватский номер", price: 70, originalPrice: 130, seller: "HR_Shop", rating: 4.2, inStock: true, category: "budget europe", icon: "🇭🇷", reviews: 27},
+                        {id: 123, name: "🇸🇮 Slovenia +386 | Standard", description: "Стандартный словенский номер", price: 70, originalPrice: 135, seller: "SI_Deals", rating: 4.3, inStock: true, category: "budget europe", icon: "🇸🇮", reviews: 22},
+                        {id: 124, name: "🇲🇰 Macedonia +389 | Budget", description: "Бюджетный македонский номер", price: 70, originalPrice: 120, seller: "MK_Provider", rating: 4.0, inStock: true, category: "budget europe", icon: "🇲🇰", reviews: 18},
+                        {id: 125, name: "🇦🇱 Albania +355 | Economy", description: "Экономный албанский номер", price: 70, originalPrice: 115, seller: "AL_Shop", rating: 4.1, inStock: true, category: "budget europe", icon: "🇦🇱", reviews: 24},
 
-                        // 🇮🇹 Италия
-                        {id: 16, name: "🇮🇹 Italy +39 | Premium IT", description: "Премиум итальянский номер", price: 170, originalPrice: 260, seller: "IT_Premium", rating: 4.6, inStock: true, category: "europe premium", icon: "🇮🇹", reviews: 76},
-                        {id: 17, name: "🇮🇹 Italy +39 | Standard IT", description: "Стандартный номер Италии", price: 130, originalPrice: 180, seller: "IT_Standard", rating: 4.4, inStock: true, category: "europe", icon: "🇮🇹", reviews: 54},
+                        {id: 126, name: "🇧🇦 Bosnia +387 | Basic", description: "Базовый боснийский номер", price: 70, originalPrice: 120, seller: "BA_Deals", rating: 4.0, inStock: true, category: "budget europe", icon: "🇧🇦", reviews: 16},
+                        {id: 127, name: "🇲🇪 Montenegro +382 | Standard", description: "Стандартный черногорский номер", price: 70, originalPrice: 125, seller: "ME_Provider", rating: 4.2, inStock: true, category: "budget europe", icon: "🇲🇪", reviews: 21},
+                        {id: 128, name: "🇽🇰 Kosovo +383 | Budget", description: "Бюджетный косовский номер", price: 70, originalPrice: 115, seller: "XK_Shop", rating: 4.0, inStock: true, category: "budget europe", icon: "🇽🇰", reviews: 14},
+                        {id: 129, name: "🇲🇹 Malta +356 | Economy", description: "Экономный мальтийский номер", price: 70, originalPrice: 140, seller: "MT_Deals", rating: 4.3, inStock: true, category: "budget europe", icon: "🇲🇹", reviews: 29},
+                        {id: 130, name: "🇨🇾 Cyprus +357 | Basic", description: "Базовый кипрский номер", price: 70, originalPrice: 135, seller: "CY_Provider", rating: 4.2, inStock: true, category: "budget europe", icon: "🇨🇾", reviews: 25},
 
-                        // 🇪🇸 Испания
-                        {id: 18, name: "🇪🇸 Spain +34 | Premium ES", description: "Премиум испанский номер", price: 160, originalPrice: 240, seller: "ES_Premium", rating: 4.6, inStock: true, category: "europe premium", icon: "🇪🇸", reviews: 89},
-                        {id: 19, name: "🇪🇸 Spain +34 | Standard ES", description: "Стандартный номер Испании", price: 120, originalPrice: 170, seller: "ES_Standard", rating: 4.4, inStock: true, category: "europe", icon: "🇪🇸", reviews: 67},
+                        {id: 131, name: "🇮🇸 Iceland +354 | Standard", description: "Стандартный исландский номер", price: 70, originalPrice: 150, seller: "IS_Shop", rating: 4.4, inStock: true, category: "budget europe", icon: "🇮🇸", reviews: 32},
+                        {id: 132, name: "🇦🇩 Andorra +376 | Budget", description: "Бюджетный андоррский номер", price: 70, originalPrice: 145, seller: "AD_Deals", rating: 4.1, inStock: true, category: "budget europe", icon: "🇦🇩", reviews: 11},
+                        {id: 133, name: "🇲🇨 Monaco +377 | Economy", description: "Экономный монегасский номер", price: 70, originalPrice: 155, seller: "MC_Provider", rating: 4.3, inStock: true, category: "budget europe", icon: "🇲🇨", reviews: 17},
+                        {id: 134, name: "🇱🇮 Liechtenstein +423 | Basic", description: "Базовый лихтенштейнский номер", price: 70, originalPrice: 160, seller: "LI_Shop", rating: 4.2, inStock: true, category: "budget europe", icon: "🇱🇮", reviews: 13},
+                        {id: 135, name: "🇸🇲 San Marino +378 | Standard", description: "Стандартный сан-маринский номер", price: 70, originalPrice: 150, seller: "SM_Deals", rating: 4.1, inStock: true, category: "budget europe", icon: "🇸🇲", reviews: 15},
 
-                        // 🇵🇱 Польша
-                        {id: 20, name: "🇵🇱 Poland +48 | Premium PL", description: "Премиум польский номер", price: 150, originalPrice: 220, seller: "PL_Premium", rating: 4.5, inStock: true, category: "europe premium", icon: "🇵🇱", reviews: 78},
-                        {id: 21, name: "🇵🇱 Poland +48 | Budget PL", description: "Бюджетный номер Польши", price: 100, originalPrice: 150, seller: "PL_Budget", rating: 4.3, inStock: true, category: "europe budget", icon: "🇵🇱", reviews: 45},
+                        {id: 136, name: "🇻🇦 Vatican +379 | Budget", description: "Бюджетный ватиканский номер", price: 70, originalPrice: 170, seller: "VA_Provider", rating: 4.0, inStock: true, category: "budget europe", icon: "🇻🇦", reviews: 8},
+                        {id: 137, name: "🇦🇹 Austria +43 | Economy", description: "Экономный австрийский номер", price: 70, originalPrice: 145, seller: "AT_Shop", rating: 4.3, inStock: true, category: "budget europe", icon: "🇦🇹", reviews: 46},
+                        {id: 138, name: "🇨🇭 Switzerland +41 | Basic", description: "Базовый швейцарский номер", price: 70, originalPrice: 165, seller: "CH_Deals", rating: 4.4, inStock: true, category: "budget europe", icon: "🇨🇭", reviews: 38},
+                        {id: 139, name: "🇩🇰 Denmark +45 | Standard", description: "Стандартный датский номер", price: 70, originalPrice: 150, seller: "DK_Provider", rating: 4.2, inStock: true, category: "budget europe", icon: "🇩🇰", reviews: 34},
+                        {id: 140, name: "🇫🇮 Finland +358 | Budget", description: "Бюджетный финский номер", price: 70, originalPrice: 155, seller: "FI_Shop", rating: 4.3, inStock: true, category: "budget europe", icon: "🇫🇮", reviews: 41},
 
-                        // 🇳🇱 Нидерланды
-                        {id: 22, name: "🇳🇱 Netherlands +31 | Premium NL", description: "Премиум голландский номер", price: 170, originalPrice: 250, seller: "NL_Premium", rating: 4.7, inStock: true, category: "europe premium", icon: "🇳🇱", reviews: 92},
-                        {id: 23, name: "🇳🇱 Netherlands +31 | Standard NL", description: "Стандартный номер Нидерландов", price: 130, originalPrice: 190, seller: "NL_Standard", rating: 4.5, inStock: true, category: "europe", icon: "🇳🇱", reviews: 61},
-
-                        // 🇸🇪 Швеция
-                        {id: 24, name: "🇸🇪 Sweden +46 | Premium SE", description: "Премиум шведский номер", price: 190, originalPrice: 290, seller: "SE_Premium", rating: 4.8, inStock: true, category: "europe premium", icon: "🇸🇪", reviews: 84},
-                        {id: 25, name: "🇸🇪 Sweden +46 | Standard SE", description: "Стандартный номер Швеции", price: 140, originalPrice: 210, seller: "SE_Standard", rating: 4.6, inStock: true, category: "europe", icon: "🇸🇪", reviews: 53},
-
-                        // 🇨🇳 Китай
-                        {id: 26, name: "🇨🇳 China +86 | Business CN", description: "Бизнес номер Китая", price: 220, originalPrice: 350, seller: "CN_Business", rating: 4.8, inStock: true, category: "asia premium", icon: "🇨🇳", reviews: 234},
-                        {id: 27, name: "🇨🇳 China +86 | Premium CN", description: "Премиум китайский номер", price: 180, originalPrice: 270, seller: "CN_Premium", rating: 4.7, inStock: true, category: "asia premium", icon: "🇨🇳", reviews: 167},
-                        {id: 28, name: "🇨🇳 China +86 | Standard CN", description: "Стандартный номер Китая", price: 140, originalPrice: 200, seller: "CN_Standard", rating: 4.5, inStock: true, category: "asia", icon: "🇨🇳", reviews: 98},
-                        {id: 29, name: "🇨🇳 China +86 | Budget CN", description: "Бюджетный номер Китая", price: 110, originalPrice: 160, seller: "CN_Budget", rating: 4.3, inStock: true, category: "asia budget", icon: "🇨🇳", reviews: 67},
-
-                        // 🇯🇵 Япония
-                        {id: 30, name: "🇯🇵 Japan +81 | Business JP", description: "Бизнес номер Японии", price: 240, originalPrice: 380, seller: "JP_Business", rating: 4.9, inStock: true, category: "asia premium", icon: "🇯🇵", reviews: 189},
-                        {id: 31, name: "🇯🇵 Japan +81 | Premium JP", description: "Премиум японский номер", price: 190, originalPrice: 290, seller: "JP_Premium", rating: 4.8, inStock: true, category: "asia premium", icon: "🇯🇵", reviews: 134},
-                        {id: 32, name: "🇯🇵 Japan +81 | Standard JP", description: "Стандартный номер Японии", price: 150, originalPrice: 220, seller: "JP_Standard", rating: 4.6, inStock: true, category: "asia", icon: "🇯🇵", reviews: 89},
-
-                        // 🇰🇷 Южная Корея
-                        {id: 33, name: "🇰🇷 Korea +82 | Business KR", description: "Бизнес номер Кореи", price: 230, originalPrice: 360, seller: "KR_Business", rating: 4.8, inStock: true, category: "asia premium", icon: "🇰🇷", reviews: 156},
-                        {id: 34, name: "🇰🇷 Korea +82 | Premium KR", description: "Премиум корейский номер", price: 180, originalPrice: 270, seller: "KR_Premium", rating: 4.7, inStock: true, category: "asia premium", icon: "🇰🇷", reviews: 112},
-                        {id: 35, name: "🇰🇷 Korea +82 | Standard KR", description: "Стандартный номер Кореи", price: 140, originalPrice: 200, seller: "KR_Standard", rating: 4.5, inStock: true, category: "asia", icon: "🇰🇷", reviews: 78},
-
-                        // 🇮🇳 Индия
-                        {id: 36, name: "🇮🇳 India +91 | Business IN", description: "Бизнес номер Индии", price: 160, originalPrice: 240, seller: "IN_Business", rating: 4.7, inStock: true, category: "asia premium", icon: "🇮🇳", reviews: 287},
-                        {id: 37, name: "🇮🇳 India +91 | Premium IN", description: "Премиум индийский номер", price: 130, originalPrice: 190, seller: "IN_Premium", rating: 4.6, inStock: true, category: "asia premium", icon: "🇮🇳", reviews: 234},
-                        {id: 38, name: "🇮🇳 India +91 | Standard IN", description: "Стандартный номер Индии", price: 100, originalPrice: 150, seller: "IN_Standard", rating: 4.4, inStock: true, category: "asia", icon: "🇮🇳", reviews: 178},
-                        {id: 39, name: "🇮🇳 India +91 | Budget IN", description: "Бюджетный номер Индии", price: 90, originalPrice: 130, seller: "IN_Budget", rating: 4.2, inStock: true, category: "asia budget", icon: "🇮🇳", reviews: 145},
-
-                        // 🇦🇪 ОАЭ
-                        {id: 40, name: "🇦🇪 UAE +971 | Business AE", description: "Бизнес номер ОАЭ", price: 280, originalPrice: 450, seller: "AE_Business", rating: 4.9, inStock: true, category: "asia premium", icon: "🇦🇪", reviews: 134},
-                        {id: 41, name: "🇦🇪 UAE +971 | Premium AE", description: "Премиум номер ОАЭ", price: 220, originalPrice: 350, seller: "AE_Premium", rating: 4.8, inStock: true, category: "asia premium", icon: "🇦🇪", reviews: 89},
-
-                        // 🇸🇬 Сингапур
-                        {id: 42, name: "🇸🇬 Singapore +65 | Business SG", description: "Бизнес номер Сингапура", price: 260, originalPrice: 420, seller: "SG_Business", rating: 4.9, inStock: true, category: "asia premium", icon: "🇸🇬", reviews: 98},
-                        {id: 43, name: "🇸🇬 Singapore +65 | Premium SG", description: "Премиум номер Сингапура", price: 200, originalPrice: 320, seller: "SG_Premium", rating: 4.7, inStock: true, category: "asia premium", icon: "🇸🇬", reviews: 67},
-
-                        // 🇦🇺 Австралия
-                        {id: 44, name: "🇦🇺 Australia +61 | Business AU", description: "Бизнес номер Австралии", price: 240, originalPrice: 380, seller: "AU_Business", rating: 4.8, inStock: true, category: "premium", icon: "🇦🇺", reviews: 112},
-                        {id: 45, name: "🇦🇺 Australia +61 | Premium AU", description: "Премиум австралийский номер", price: 190, originalPrice: 290, seller: "AU_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇦🇺", reviews: 78},
-
-                        // 🇧🇷 Бразилия
-                        {id: 46, name: "🇧🇷 Brazil +55 | Premium BR", description: "Премиум бразильский номер", price: 170, originalPrice: 260, seller: "BR_Premium", rating: 4.6, inStock: true, category: "premium", icon: "🇧🇷", reviews: 89},
-                        {id: 47, name: "🇧🇷 Brazil +55 | Standard BR", description: "Стандартный номер Бразилии", price: 130, originalPrice: 190, seller: "BR_Standard", rating: 4.4, inStock: true, category: "budget", icon: "🇧🇷", reviews: 56},
-
-                        // 🇲🇽 Мексика
-                        {id: 48, name: "🇲🇽 Mexico +52 | Premium MX", description: "Премиум мексиканский номер", price: 160, originalPrice: 240, seller: "MX_Premium", rating: 4.5, inStock: true, category: "premium", icon: "🇲🇽", reviews: 67},
-                        {id: 49, name: "🇲🇽 Mexico +52 | Budget MX", description: "Бюджетный номер Мексики", price: 110, originalPrice: 160, seller: "MX_Budget", rating: 4.3, inStock: true, category: "budget", icon: "🇲🇽", reviews: 34},
-
-                        // 🇦🇷 Аргентина
-                        {id: 50, name: "🇦🇷 Argentina +54 | Standard AR", description: "Стандартный номер Аргентины", price: 140, originalPrice: 200, seller: "AR_Standard", rating: 4.4, inStock: true, category: "budget", icon: "🇦🇷", reviews: 45},
-                        {id: 51, name: "🇦🇷 Argentina +54 | Budget AR", description: "Бюджетный номер Аргентины", price: 100, originalPrice: 150, seller: "AR_Budget", rating: 4.2, inStock: true, category: "budget", icon: "🇦🇷", reviews: 23},
-
-                        // 🇹🇷 Турция
-                        {id: 52, name: "🇹🇷 Turkey +90 | Premium TR", description: "Премиум турецкий номер", price: 150, originalPrice: 220, seller: "TR_Premium", rating: 4.6, inStock: true, category: "premium", icon: "🇹🇷", reviews: 134},
-                        {id: 53, name: "🇹🇷 Turkey +90 | Budget TR", description: "Бюджетный номер Турции", price: 95, originalPrice: 140, seller: "TR_Budget", rating: 4.3, inStock: true, category: "budget", icon: "🇹🇷", reviews: 89},
-
-                        // 🇿🇦 Южная Африка
-                        {id: 54, name: "🇿🇦 South Africa +27 | Premium ZA", description: "Премиум номер ЮАР", price: 180, originalPrice: 280, seller: "ZA_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇿🇦", reviews: 76},
-                        {id: 55, name: "🇿🇦 South Africa +27 | Standard ZA", description: "Стандартный номер ЮАР", price: 140, originalPrice: 200, seller: "ZA_Standard", rating: 4.5, inStock: true, category: "budget", icon: "🇿🇦", reviews: 45},
-
-                        // 🇳🇬 Нигерия
-                        {id: 56, name: "🇳🇬 Nigeria +234 | Premium NG", description: "Премиум номер Нигерии", price: 160, originalPrice: 240, seller: "NG_Premium", rating: 4.6, inStock: true, category: "premium", icon: "🇳🇬", reviews: 67},
-                        {id: 57, name: "🇳🇬 Nigeria +234 | Budget NG", description: "Бюджетный номер Нигерии", price: 105, originalPrice: 155, seller: "NG_Budget", rating: 4.3, inStock: true, category: "budget", icon: "🇳🇬", reviews: 34},
-
-                        // 🇪🇬 Египет
-                        {id: 58, name: "🇪🇬 Egypt +20 | Premium EG", description: "Премиум египетский номер", price: 150, originalPrice: 220, seller: "EG_Premium", rating: 4.5, inStock: true, category: "premium", icon: "🇪🇬", reviews: 89},
-                        {id: 59, name: "🇪🇬 Egypt +20 | Budget EG", description: "Бюджетный номер Египта", price: 100, originalPrice: 150, seller: "EG_Budget", rating: 4.2, inStock: true, category: "budget", icon: "🇪🇬", reviews: 56},
-
-                        // 🇷🇺 Россия
-                        {id: 60, name: "🇷🇺 Russia +7 | Business RU", description: "Бизнес номер России", price: 200, originalPrice: 320, seller: "RU_Business", rating: 4.8, inStock: true, category: "premium", icon: "🇷🇺", reviews: 456},
-                        {id: 61, name: "🇷🇺 Russia +7 | Premium RU", description: "Премиум российский номер", price: 160, originalPrice: 240, seller: "RU_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇷🇺", reviews: 334},
-                        {id: 62, name: "🇷🇺 Russia +7 | Standard RU", description: "Стандартный номер России", price: 120, originalPrice: 180, seller: "RU_Standard", rating: 4.5, inStock: true, category: "budget", icon: "🇷🇺", reviews: 267},
-                        {id: 63, name: "🇷🇺 Russia +7 | Budget RU", description: "Бюджетный номер России", price: 95, originalPrice: 140, seller: "RU_Budget", rating: 4.3, inStock: true, category: "budget", icon: "🇷🇺", reviews: 189},
-
-                        // 🇺🇦 Украина
-                        {id: 64, name: "🇺🇦 Ukraine +380 | Premium UA", description: "Премиум украинский номер", price: 140, originalPrice: 210, seller: "UA_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇺🇦", reviews: 189},
-                        {id: 65, name: "🇺🇦 Ukraine +380 | Budget UA", description: "Бюджетный номер Украины", price: 90, originalPrice: 130, seller: "UA_Budget", rating: 4.4, inStock: true, category: "budget", icon: "🇺🇦", reviews: 134}
+                        // Существующие премиум номера
+                        {id: 1, name: "🇺🇸 USA +1 | Premium", description: "Премиум американский номер с верификацией", price: 250, originalPrice: 400, seller: "Premium_USA", rating: 4.9, inStock: true, category: "premium", icon: "🇺🇸", reviews: 512},
+                        {id: 2, name: "🇬🇧 UK +44 | Business", description: "Бизнес номер Великобритании", price: 230, originalPrice: 380, seller: "UK_Business", rating: 4.9, inStock: true, category: "premium", icon: "🇬🇧", reviews: 267},
+                        {id: 3, name: "🇩🇪 Germany +49 | Premium", description: "Премиум немецкий номер", price: 210, originalPrice: 340, seller: "DE_Business", rating: 4.8, inStock: true, category: "premium", icon: "🇩🇪", reviews: 189},
+                        {id: 4, name: "🇫🇷 France +33 | Business", description: "Бизнес номер Франции", price: 200, originalPrice: 320, seller: "FR_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇫🇷", reviews: 156},
+                        {id: 5, name: "🇨🇳 China +86 | Premium", description: "Премиум китайский номер", price: 220, originalPrice: 350, seller: "CN_Business", rating: 4.8, inStock: true, category: "premium asia", icon: "🇨🇳", reviews: 234}
                     ]);
                 }, 1000);
             });
@@ -809,7 +620,7 @@
 
         function getFallbackProducts() {
             return [{
-                id: 99, name: "🕶️ Basic Account", description: "Базовый аккаунт", price: 110, originalPrice: 200, seller: "Base_Provider", rating: 4.2, inStock: true, category: "basic", icon: "🕶️", reviews: 45
+                id: 99, name: "🕶️ Basic Account", description: "Базовый аккаунт для начинающих", price: 70, originalPrice: 120, seller: "Base_Provider", rating: 4.2, inStock: true, category: "budget", icon: "🕶️", reviews: 45
             }];
         }
 
@@ -825,10 +636,10 @@
             
             if (filteredProducts.length === 0) {
                 productsGrid.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; color: #ff6666; padding: 40px;">
-                        <div style="font-size: 4em; margin-bottom: 20px;">🔍</div>
+                    <div style="grid-column: 1 / -1; text-align: center; color: #90a0d0; padding: 40px;">
+                        <div style="font-size: 3em; margin-bottom: 20px;">🔍</div>
                         <h3>Товары не найдены</h3>
-                        <p>Измените фильтры</p>
+                        <p>Попробуйте изменить фильтры поиска</p>
                     </div>
                 `;
                 return;
@@ -837,7 +648,8 @@
             filteredProducts.forEach((product, index) => {
                 const productCard = document.createElement('div');
                 productCard.className = 'product-card';
-                productCard.style.animationDelay = `${index * 0.1}s`;
+                
+                const productReviews = getRandomReviews();
                 
                 productCard.innerHTML = `
                     <div class="product-icon">${product.icon}</div>
@@ -856,18 +668,28 @@
                     </div>
                     
                     <div class="stock-status ${product.inStock ? 'in-stock' : 'out-of-stock'}">
-                        ${product.inStock ? '💀 В наличии' : '⚰️ Нет в наличии'}
+                        ${product.inStock ? '✅ В наличии' : '❌ Нет в наличии'}
+                    </div>
+                    
+                    <div class="reviews">
+                        <div style="color: #90a0d0; font-size: 0.9em; margin-bottom: 8px; font-weight: 500;">📝 Последние отзывы:</div>
+                        ${productReviews.map(review => `
+                            <div class="review-item">
+                                <div class="review-user">${review.user}</div>
+                                <div class="review-text">${review.text}</div>
+                            </div>
+                        `).join('')}
                     </div>
                     
                     <div class="product-source">
-                        <span class="lzt-badge">ELITE SHOP</span>
+                        <span class="official-badge">OFFICIAL</span>
                         <span class="update-time">🕒 ${new Date().toLocaleTimeString()}</span>
                     </div>
                     
                     <button class="btn ${!product.inStock ? 'disabled' : ''}" 
                             onclick="addToCart(${product.id})"
                             ${!product.inStock ? 'disabled' : ''}>
-                        ${product.inStock ? '💀 Добавить в корзину' : '⚰️ Нет в наличии'}
+                        ${product.inStock ? '🛒 Добавить в корзину' : '❌ Нет в наличии'}
                     </button>
                 `;
                 productsGrid.appendChild(productCard);
@@ -882,11 +704,10 @@
         function filterProducts(products) {
             switch(currentFilter) {
                 case 'in-stock': return products.filter(p => p.inStock);
-                case 'usa': return products.filter(p => p.category.includes('usa'));
+                case 'budget': return products.filter(p => p.price <= 100);
+                case 'premium': return products.filter(p => p.price > 200);
                 case 'europe': return products.filter(p => p.category.includes('europe'));
                 case 'asia': return products.filter(p => p.category.includes('asia'));
-                case 'premium': return products.filter(p => p.category.includes('premium'));
-                case 'budget': return products.filter(p => p.category.includes('budget'));
                 default: return products;
             }
         }
@@ -917,17 +738,17 @@
                 localStorage.setItem('eliteTelegramCart', JSON.stringify(cartItems));
                 
                 // Показываем уведомление
-                showNotification(`💀 "${product.name}" добавлен в корзину!`, 'success');
+                showNotification(`✅ "${product.name}" добавлен в корзину!`);
                 
                 // Обновляем счетчик
                 updateCartCount();
                 
                 // Анимация кнопки
-                event.target.innerHTML = '💀 Добавлено!';
-                event.target.style.background = 'linear-gradient(45deg, #006400, #008000)';
+                event.target.innerHTML = '✅ Добавлено!';
+                event.target.style.background = 'linear-gradient(45deg, #2d5a2d, #3d6a3d)';
                 setTimeout(() => {
-                    event.target.innerHTML = '💀 Добавить в корзину';
-                    event.target.style.background = 'linear-gradient(45deg, #8b0000, #ff0000)';
+                    event.target.innerHTML = '🛒 Добавить в корзину';
+                    event.target.style.background = 'linear-gradient(45deg, #2a4a7a, #3a5a8a)';
                 }, 2000);
             }
         }
@@ -955,7 +776,7 @@
             }
         }
 
-        function showNotification(message, type = 'info') {
+        function showNotification(message) {
             const notification = document.createElement('div');
             notification.textContent = message;
             
@@ -964,18 +785,18 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: rgba(0,0,0,0.95);
-                color: #00ff00;
+                background: rgba(25, 25, 40, 0.95);
+                color: #90ee90;
                 padding: 20px 35px;
-                border-radius: 15px;
+                border-radius: 8px;
                 z-index: 1000;
-                font-size: 1.1em;
-                border: 2px solid #00ff00;
+                font-size: 1em;
+                border: 1px solid #2d5a2d;
                 text-align: center;
                 max-width: 90%;
                 word-wrap: break-word;
-                font-weight: bold;
-                box-shadow: 0 10px 30px rgba(0,255,0,0.3);
+                font-weight: 500;
+                box-shadow: 0 5px 20px rgba(45, 90, 45, 0.3);
             `;
             
             document.body.appendChild(notification);
@@ -993,7 +814,7 @@
                 productsGrid.innerHTML = `
                     <div class="loading">
                         <div class="loading-spinner"></div>
-                        <p>Загрузка товаров...</p>
+                        <p>Загрузка каталога товаров...</p>
                     </div>
                 `;
             }
