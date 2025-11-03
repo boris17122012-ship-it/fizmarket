@@ -500,6 +500,66 @@
         let cartItems = [];
         let paymentMethod = 'crypto';
 
+        // Функция для проверки, есть ли товар уже в корзине
+        function isProductInCart(productId) {
+            const savedCart = localStorage.getItem('eliteTelegramCart');
+            if (!savedCart) return false;
+            
+            const cart = JSON.parse(savedCart);
+            return cart.some(item => item.id === productId);
+        }
+
+        // Функция для добавления товара в корзину (используется на главной странице)
+        function addToCart(productId) {
+            // Получаем данные о товаре (в реальном приложении это будет из базы данных)
+            const product = getProductById(productId);
+            
+            if (!product) {
+                showNotification('❌ Товар не найден!', 'error');
+                return;
+            }
+            
+            // Проверяем, есть ли товар уже в корзине
+            if (isProductInCart(productId)) {
+                showNotification('⚠️ Этот товар уже в корзине!', 'warning');
+                return;
+            }
+            
+            if (product && product.inStock) {
+                // Загружаем текущую корзину
+                let cartItems = JSON.parse(localStorage.getItem('eliteTelegramCart') || '[]');
+                
+                // Добавляем товар
+                cartItems.push({
+                    ...product,
+                    cartId: Date.now(),
+                    addedAt: new Date().toLocaleTimeString()
+                });
+                
+                // Сохраняем
+                localStorage.setItem('eliteTelegramCart', JSON.stringify(cartItems));
+                
+                // Показываем уведомление
+                showNotification(`💀 "${product.name}" добавлен в корзину!`, 'success');
+                
+                // Обновляем счетчик в хедере
+                updateCartCount();
+                
+                // Анимация кнопки
+                if (event && event.target) {
+                    event.target.innerHTML = '💀 В корзине';
+                    event.target.style.background = 'linear-gradient(45deg, #006400, #008000)';
+                    event.target.disabled = true;
+                    
+                    setTimeout(() => {
+                        event.target.innerHTML = '💀 Добавить в корзину';
+                        event.target.style.background = 'linear-gradient(45deg, #8b0000, #ff0000)';
+                        event.target.disabled = false;
+                    }, 2000);
+                }
+            }
+        }
+
         function loadCartItems() {
             const savedCart = localStorage.getItem('eliteTelegramCart');
             if (savedCart) {
@@ -645,6 +705,8 @@
                 notification.style.background = 'linear-gradient(45deg, #8b0000, #ff0000)';
             } else if (type === 'success') {
                 notification.style.background = 'linear-gradient(45deg, #006400, #008000)';
+            } else if (type === 'warning') {
+                notification.style.background = 'linear-gradient(45deg, #ff8c00, #ffa500)';
             } else {
                 notification.style.background = 'linear-gradient(45deg, #8b0000, #ff0000)';
             }
@@ -662,6 +724,30 @@
             if (timeElement) {
                 timeElement.textContent = new Date().toLocaleTimeString();
             }
+        }
+
+        // Вспомогательная функция для получения товара по ID (для демонстрации)
+        function getProductById(productId) {
+            // В реальном приложении здесь будет запрос к базе данных
+            // Для демонстрации возвращаем фиктивный товар
+            return {
+                id: productId,
+                name: "Тестовый товар",
+                description: "Описание тестового товара",
+                price: 100,
+                icon: "📱",
+                seller: "Test_Seller",
+                rating: 4.5,
+                inStock: true
+            };
+        }
+
+        // Функция для обновления счетчика в хедере (используется на главной странице)
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('eliteTelegramCart') || '[]');
+            document.querySelectorAll('#cartCount, #headerCartCount, #cartCountDisplay').forEach(el => {
+                if (el) el.textContent = cartItems.length;
+            });
         }
 
         // Загрузка при старте
