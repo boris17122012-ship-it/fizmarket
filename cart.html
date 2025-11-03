@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛒 Корзина - ELITE TELEGRAM SHOP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(139,0,0,0.7) 100%);
+            border-radius: 15px;
+            border: 1px solid #8b0000;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff0000, #8b0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+        }
+        
+        .cart-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .cart-items {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #8b0000;
+        }
+        
+        .cart-summary {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #8b0000;
+            height: fit-content;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            color: #ff6666;
+        }
+        
+        .empty-cart-icon {
+            font-size: 6em;
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(139,0,0,0.2) 100%);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #8b0000;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-item:hover {
+            border: 1px solid #ff0000;
+            transform: translateX(5px);
+        }
+        
+        .cart-item-icon {
+            font-size: 3em;
+            margin-right: 20px;
+            min-width: 60px;
+        }
+        
+        .cart-item-info {
+            flex-grow: 1;
+        }
+        
+        .cart-item-name {
+            font-size: 1.3em;
+            color: #ffcccb;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .cart-item-meta {
+            display: flex;
+            gap: 15px;
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        
+        .cart-item-price {
+            font-size: 1.4em;
+            color: #ff4444;
+            font-weight: bold;
+        }
+        
+        .remove-btn {
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .remove-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .summary-title {
+            font-size: 1.8em;
+            color: #ffcccb;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #ff4444;
+            margin: 25px 0;
+            padding-top: 15px;
+            border-top: 2px solid #8b0000;
+        }
+        
+        .checkout-btn {
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            color: #000;
+            border: none;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .checkout-btn:hover {
+            transform: scale(1.02);
+        }
+        
+        .checkout-btn:disabled {
+            background: #333;
+            color: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .payment-methods {
+            margin: 25px 0;
+        }
+        
+        .payment-title {
+            color: #ffcccb;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .crypto-wallet {
+            background: rgba(139, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #8b0000;
+            margin-bottom: 15px;
+            word-break: break-all;
+        }
+        
+        .wallet-address {
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            font-size: 0.9em;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            transform: scale(1.02);
+        }
+        
+        .instructions {
+            background: rgba(139, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #8b0000;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #ccc;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            border: 1px solid #8b0000;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #ff6666;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 15px;
+            background: rgba(139, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            background: rgba(255, 0, 0, 0.3);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            color: #000;
+            padding: 16px 28px;
+            border-radius: 25px;
+            font-weight: bold;
+            z-index: 1000;
+            display: none;
+        }
+        
+        @media (max-width: 968px) {
+            .cart-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cart-item-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🛒 КОРЗИНА ПОКУПОК</h1>
+            <p>ELITE TELEGRAM SHOP • Все номера по 110₽ • Моментальная доставка</p>
+            
+            <a href="index.html" class="back-link">
+                ⚡ Вернуться в магазин
+            </a>
+        </div>
+
+        <div class="cart-content">
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">
+                    <div class="empty-cart-icon">🛒</div>
+                    <h3>Корзина пуста</h3>
+                    <p>Добавьте товары из магазина</p>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <h2 class="summary-title">💀 Оформление заказа</h2>
+                
+                <div class="summary-item">
+                    <span>Товары:</span>
+                    <span id="itemsCount">0</span>
+                </div>
+                
+                <div class="summary-item">
+                    <span>Стоимость:</span>
+                    <span id="subtotal">0 ₽</span>
+                </div>
+                
+                <div class="summary-total">
+                    <span>ИТОГО:</span>
+                    <span id="total">0 ₽</span>
+                </div>
+                
+                <button class="checkout-btn" id="checkoutBtn" disabled>
+                    💀 ПЕРЕЙТИ К ОПЛАТЕ
+                </button>
+                
+                <div class="payment-methods">
+                    <div class="payment-title">💳 Способ оплаты:</div>
+                    
+                    <div class="crypto-wallet">
+                        <strong>TON Coin (Telegram Open Network)</strong>
+                        <div class="wallet-address" id="walletAddress">
+                            UQBYFdivQebVdF1Q2moiL42d_zPtjXrMiuj9HmmzCPTuZy8m
+                        </div>
+                        <button class="copy-btn" onclick="copyWalletAddress()">
+                            📋 Скопировать адрес
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                    <strong>📋 Инструкция по оплате:</strong>
+                    <ol>
+                        <li>Скопируйте адрес кошелька выше</li>
+                        <li>Отправьте точную сумму <strong id="paymentAmount">0</strong> TON</li>
+                        <li>После оплаты напишите в поддержку с хешем транзакции</li>
+                        <li>Получите товар моментально после подтверждения платежа</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 ELITE TELEGRAM SHOP. Все номера по 110₽</p>
+            <p>Моментальная доставка • Гарантия качества • Поддержка 24/7</p>
+            
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">⚡ Магазин</a>
+                <a href="https://t.me/awoeg" target="_blank" class="footer-link">📞 Поддержка</a>
+                <a href="https://discord.gg/arestt" target="_blank" class="footer-link">🎮 Discord</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        📋 Скопировано в буфер обмена!
+    </div>
+
+    <script>
+        let cartItems = [];
+        const walletAddress = "UQBYFdivQebVdF1Q2moiL42d_zPtjXrMiuj9HmmzCPTuZy8m";
+        const tonRate = 280; // Примерный курс TON к рублю
+
+        function loadCartFromStorage() {
+            const savedCart = localStorage.getItem('eliteTelegramCart');
+            if (savedCart) {
+                cartItems = JSON.parse(savedCart);
+                displayCartItems();
+                updateSummary();
+            }
+        }
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">🛒</div>
+                        <h3>Корзина пуста</h3>
+                        <p>Добавьте товары из магазина</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            cartItemsContainer.innerHTML = '';
+            
+            cartItems.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                
+                cartItem.innerHTML = `
+                    <div class="cart-item-icon">${item.icon}</div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-meta">
+                            <span>👤 ${item.seller}</span>
+                            <span>⭐ ${item.rating}</span>
+                            <span>🕒 ${item.addedAt}</span>
+                        </div>
+                        <div class="cart-item-price">${item.price} ₽</div>
+                    </div>
+                    <button class="remove-btn" onclick="removeFromCart(${item.cartId})">
+                        ❌ Удалить
+                    </button>
+                `;
+                
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
+
+        function updateSummary() {
+            const itemsCount = document.getElementById('itemsCount');
+            const subtotal = document.getElementById('subtotal');
+            const total = document.getElementById('total');
+            const paymentAmount = document.getElementById('paymentAmount');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            
+            const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
+            const tonAmount = (totalPrice / tonRate).toFixed(4);
+            
+            if (itemsCount) itemsCount.textContent = cartItems.length;
+            if (subtotal) subtotal.textContent = totalPrice + ' ₽';
+            if (total) total.textContent = totalPrice + ' ₽';
+            if (paymentAmount) paymentAmount.textContent = tonAmount;
+            
+            if (checkoutBtn) {
+                checkoutBtn.disabled = cartItems.length === 0;
+            }
+        }
+
+        function removeFromCart(cartId) {
+            cartItems = cartItems.filter(item => item.cartId !== cartId);
+            localStorage.setItem('eliteTelegramCart', JSON.stringify(cartItems));
+            displayCartItems();
+            updateSummary();
+            showNotification('💀 Товар удален из корзины');
+        }
+
+        function copyWalletAddress() {
+            navigator.clipboard.writeText(walletAddress).then(() => {
+                showNotification('📋 Адрес кошелька скопирован!');
+            }).catch(err => {
+                console.error('Ошибка копирования: ', err);
+                // Fallback для старых браузеров
+                const textArea = document.createElement('textarea');
+                textArea.value = walletAddress;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showNotification('📋 Адрес кошелька скопирован!');
+            });
+        }
+
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                notification.textContent = message;
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function proceedToCheckout() {
+            if (cartItems.length === 0) {
+                showNotification('💀 Добавьте товары в корзину');
+                return;
+            }
+            
+            const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
+            const tonAmount = (totalPrice / tonRate).toFixed(4);
+            
+            showNotification(`💀 Переведите ${tonAmount} TON на указанный кошелек`);
+            
+            // Прокрутка к разделу оплаты
+            document.querySelector('.payment-methods').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // ЗАГРУЗКА БЕЗ УВЕДОМЛЕНИЯ НА ВХОДЕ
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCartFromStorage();
+            
+            // Назначаем обработчик для кнопки оформления заказа
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', proceedToCheckout);
+            }
+            
+            // НЕТ УВЕДОМЛЕНИЯ ПРИ ВХОДЕ - СТРАНИЦА ЗАГРУЖАЕТСЯ ТИХО
+        });
+
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+        });
+    </script>
+</body>
+</html>
