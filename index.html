@@ -115,6 +115,60 @@
             box-shadow: 0 5px 15px rgba(255,0,0,0.3);
         }
 
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(139, 0, 0, 0.3);
+            border: 1px solid #8b0000;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #ffcccb;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 0, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(45deg, #ff0000, #8b0000);
+            color: #000;
+            border: 1px solid #ff0000;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);
+            border-radius: 15px;
+            border: 1px solid #8b0000;
+        }
+
+        .section-title h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff0000, #8b0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            color: #ccc;
+            font-size: 1.1em;
+        }
+
         .premium-section {
             background: linear-gradient(135deg, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);
             border-radius: 15px;
@@ -502,6 +556,7 @@
             .filters { flex-direction: column; }
             .refresh-btn { margin-left: 0; width: 100%; }
             .premium-cards { grid-template-columns: 1fr; }
+            .navigation { flex-direction: column; }
         }
     </style>
 </head>
@@ -525,7 +580,17 @@
             </a>
         </div>
 
-        <div class="premium-section">
+        <div class="navigation">
+            <a href="#premium-section" class="nav-btn">👑 Премиум</a>
+            <a href="#telegram-section" class="nav-btn">📱 Telegram</a>
+            <a href="#stars-section" class="nav-btn">⭐ Звезды</a>
+            <a href="#numbers-section" class="nav-btn">📞 Номера</a>
+            <a href="#budget-section" class="nav-btn">💰 Бюджет</a>
+            <a href="#usa-section" class="nav-btn">🇺🇸 США</a>
+            <a href="#europe-section" class="nav-btn">🇪🇺 Европа</a>
+        </div>
+
+        <div class="premium-section" id="premium-section">
             <h2>👑 ПРЕМИУМ РАЗДЕЛ</h2>
             <p>Эксклюзивные предложения для постоянных клиентов</p>
             
@@ -543,7 +608,7 @@
                 <div class="premium-card">
                     <h3>🌍 Премиум номера</h3>
                     <p>Элитные номера со всего мира</p>
-                    <a href="#premium-numbers" class="premium-btn">Выбрать</a>
+                    <a href="#numbers-section" class="premium-btn">Выбрать</a>
                 </div>
             </div>
         </div>
@@ -552,22 +617,88 @@
             🔍 Выберите раздел для просмотра товаров
         </div>
 
+        <!-- Раздел Telegram Premium -->
+        <div class="section-title" id="telegram-section">
+            <h2>📱 TELEGRAM PREMIUM</h2>
+            <p>Полный доступ ко всем премиум функциям Telegram</p>
+        </div>
+
         <div class="filters">
             <button class="filter-btn active" onclick="setFilter('all')">🎲 Все товары</button>
             <button class="filter-btn" onclick="setFilter('in-stock')">💀 В наличии</button>
-            <button class="filter-btn" onclick="setFilter('premium')">👑 Премиум</button>
             <button class="filter-btn" onclick="setFilter('telegram')">📱 Telegram</button>
-            <button class="filter-btn" onclick="setFilter('stars')">⭐ Звезды</button>
-            <button class="filter-btn" onclick="setFilter('budget')">💰 Бюджет</button>
-            <button class="filter-btn" onclick="setFilter('usa')">🇺🇸 США</button>
-            <button class="filter-btn" onclick="setFilter('europe')">🇪🇺 Европа</button>
             <button class="refresh-btn" onclick="loadProducts()">🔄 Обновить</button>
         </div>
 
-        <div class="products-grid" id="productsGrid">
+        <div class="products-grid" id="telegramProducts">
             <div class="loading">
                 <div class="loading-spinner"></div>
-                <p>Загрузка товаров...</p>
+                <p>Загрузка товаров Telegram...</p>
+            </div>
+        </div>
+
+        <!-- Раздел Звезды -->
+        <div class="section-title" id="stars-section">
+            <h2>⭐ ЗВЕЗДЫ TELEGRAM</h2>
+            <p>Звезды для донатов и покупок в Telegram по курсу 1=1.7₽</p>
+        </div>
+
+        <div class="products-grid" id="starsProducts">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Загрузка звезд...</p>
+            </div>
+        </div>
+
+        <!-- Раздел Номера -->
+        <div class="section-title" id="numbers-section">
+            <h2>📞 ТЕЛЕФОННЫЕ НОМЕРА</h2>
+            <p>Виртуальные номера со всего мира для регистрации</p>
+        </div>
+
+        <div class="products-grid" id="numbersProducts">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Загрузка номеров...</p>
+            </div>
+        </div>
+
+        <!-- Раздел Бюджет -->
+        <div class="section-title" id="budget-section">
+            <h2>💰 БЮДЖЕТНЫЕ ПРЕДЛОЖЕНИЯ</h2>
+            <p>Доступные варианты для экономных покупателей</p>
+        </div>
+
+        <div class="products-grid" id="budgetProducts">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Загрузка бюджетных товаров...</p>
+            </div>
+        </div>
+
+        <!-- Раздел США -->
+        <div class="section-title" id="usa-section">
+            <h2>🇺🇸 АМЕРИКАНСКИЕ НОМЕРА</h2>
+            <p>Номера США для международных сервисов</p>
+        </div>
+
+        <div class="products-grid" id="usaProducts">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Загрузка американских номеров...</p>
+            </div>
+        </div>
+
+        <!-- Раздел Европа -->
+        <div class="section-title" id="europe-section">
+            <h2>🇪🇺 ЕВРОПЕЙСКИЕ НОМЕРА</h2>
+            <p>Номера из стран Европейского союза</p>
+        </div>
+
+        <div class="products-grid" id="europeProducts">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Загрузка европейских номеров...</p>
             </div>
         </div>
 
@@ -577,8 +708,8 @@
             
             <div class="footer-links">
                 <a href="cart.html" class="footer-link">🛒 Корзина</a>
-                <a href="https://t.me/awoeg" target="_blank" class="footer-link">📞 Поддержка</a>
-                <a href="https://t.me/buygiftscool" target="_blank" class="footer-link">🎁 BuyGifts</a>
+                <a href="https://t.me/awoeg" target="_blank" class="footer-link">📞 Поддержка @awoeg</a>
+                <a href="https://t.me/buygiftscool" target="_blank" class="footer-link">🎁 Поддержка @buygiftscool</a>
                 <a href="https://discord.gg/arestt" target="_blank" class="footer-link">🎮 Discord</a>
             </div>
         </div>
@@ -686,11 +817,11 @@
             try {
                 const products = await loadRealProducts();
                 allProducts = products;
-                displayProducts();
+                displayProductsByCategory();
             } catch (error) {
                 console.error('Ошибка загрузки:', error);
                 allProducts = getFallbackProducts();
-                displayProducts();
+                displayProductsByCategory();
             } finally {
                 showLoading(false);
             }
@@ -763,78 +894,6 @@
                         {id: 24, name: "🇸🇪 Sweden +46 | Premium SE", description: "Премиум шведский номер", price: 190, originalPrice: 290, seller: "SE_Premium", rating: 4.8, inStock: true, category: "europe premium", icon: "🇸🇪", reviews: 84},
                         {id: 25, name: "🇸🇪 Sweden +46 | Standard SE", description: "Стандартный номер Швеции", price: 140, originalPrice: 210, seller: "SE_Standard", rating: 4.6, inStock: true, category: "europe", icon: "🇸🇪", reviews: 53},
 
-                        // 🇨🇳 Китай
-                        {id: 26, name: "🇨🇳 China +86 | Business CN", description: "Бизнес номер Китая", price: 220, originalPrice: 350, seller: "CN_Business", rating: 4.8, inStock: true, category: "asia premium", icon: "🇨🇳", reviews: 234},
-                        {id: 27, name: "🇨🇳 China +86 | Premium CN", description: "Премиум китайский номер", price: 180, originalPrice: 270, seller: "CN_Premium", rating: 4.7, inStock: true, category: "asia premium", icon: "🇨🇳", reviews: 167},
-                        {id: 28, name: "🇨🇳 China +86 | Standard CN", description: "Стандартный номер Китая", price: 140, originalPrice: 200, seller: "CN_Standard", rating: 4.5, inStock: true, category: "asia", icon: "🇨🇳", reviews: 98},
-                        {id: 29, name: "🇨🇳 China +86 | Budget CN", description: "Бюджетный номер Китая", price: 110, originalPrice: 160, seller: "CN_Budget", rating: 4.3, inStock: true, category: "asia budget", icon: "🇨🇳", reviews: 67},
-
-                        // 🇯🇵 Япония
-                        {id: 30, name: "🇯🇵 Japan +81 | Business JP", description: "Бизнес номер Японии", price: 240, originalPrice: 380, seller: "JP_Business", rating: 4.9, inStock: true, category: "asia premium", icon: "🇯🇵", reviews: 189},
-                        {id: 31, name: "🇯🇵 Japan +81 | Premium JP", description: "Премиум японский номер", price: 190, originalPrice: 290, seller: "JP_Premium", rating: 4.8, inStock: true, category: "asia premium", icon: "🇯🇵", reviews: 134},
-                        {id: 32, name: "🇯🇵 Japan +81 | Standard JP", description: "Стандартный номер Японии", price: 150, originalPrice: 220, seller: "JP_Standard", rating: 4.6, inStock: true, category: "asia", icon: "🇯🇵", reviews: 89},
-
-                        // 🇰🇷 Южная Корея
-                        {id: 33, name: "🇰🇷 Korea +82 | Business KR", description: "Бизнес номер Кореи", price: 230, originalPrice: 360, seller: "KR_Business", rating: 4.8, inStock: true, category: "asia premium", icon: "🇰🇷", reviews: 156},
-                        {id: 34, name: "🇰🇷 Korea +82 | Premium KR", description: "Премиум корейский номер", price: 180, originalPrice: 270, seller: "KR_Premium", rating: 4.7, inStock: true, category: "asia premium", icon: "🇰🇷", reviews: 112},
-                        {id: 35, name: "🇰🇷 Korea +82 | Standard KR", description: "Стандартный номер Кореи", price: 140, originalPrice: 200, seller: "KR_Standard", rating: 4.5, inStock: true, category: "asia", icon: "🇰🇷", reviews: 78},
-
-                        // 🇮🇳 Индия
-                        {id: 36, name: "🇮🇳 India +91 | Business IN", description: "Бизнес номер Индии", price: 160, originalPrice: 240, seller: "IN_Business", rating: 4.7, inStock: true, category: "asia premium", icon: "🇮🇳", reviews: 287},
-                        {id: 37, name: "🇮🇳 India +91 | Premium IN", description: "Премиум индийский номер", price: 130, originalPrice: 190, seller: "IN_Premium", rating: 4.6, inStock: true, category: "asia premium", icon: "🇮🇳", reviews: 234},
-                        {id: 38, name: "🇮🇳 India +91 | Standard IN", description: "Стандартный номер Индии", price: 100, originalPrice: 150, seller: "IN_Standard", rating: 4.4, inStock: true, category: "asia", icon: "🇮🇳", reviews: 178},
-                        {id: 39, name: "🇮🇳 India +91 | Budget IN", description: "Бюджетный номер Индии", price: 90, originalPrice: 130, seller: "IN_Budget", rating: 4.2, inStock: true, category: "asia budget", icon: "🇮🇳", reviews: 145},
-
-                        // 🇦🇪 ОАЭ
-                        {id: 40, name: "🇦🇪 UAE +971 | Business AE", description: "Бизнес номер ОАЭ", price: 280, originalPrice: 450, seller: "AE_Business", rating: 4.9, inStock: true, category: "asia premium", icon: "🇦🇪", reviews: 134},
-                        {id: 41, name: "🇦🇪 UAE +971 | Premium AE", description: "Премиум номер ОАЭ", price: 220, originalPrice: 350, seller: "AE_Premium", rating: 4.8, inStock: true, category: "asia premium", icon: "🇦🇪", reviews: 89},
-
-                        // 🇸🇬 Сингапур
-                        {id: 42, name: "🇸🇬 Singapore +65 | Business SG", description: "Бизнес номер Сингапура", price: 260, originalPrice: 420, seller: "SG_Business", rating: 4.9, inStock: true, category: "asia premium", icon: "🇸🇬", reviews: 98},
-                        {id: 43, name: "🇸🇬 Singapore +65 | Premium SG", description: "Премиум номер Сингапура", price: 200, originalPrice: 320, seller: "SG_Premium", rating: 4.7, inStock: true, category: "asia premium", icon: "🇸🇬", reviews: 67},
-
-                        // 🇦🇺 Австралия
-                        {id: 44, name: "🇦🇺 Australia +61 | Business AU", description: "Бизнес номер Австралии", price: 240, originalPrice: 380, seller: "AU_Business", rating: 4.8, inStock: true, category: "premium", icon: "🇦🇺", reviews: 112},
-                        {id: 45, name: "🇦🇺 Australia +61 | Premium AU", description: "Премиум австралийский номер", price: 190, originalPrice: 290, seller: "AU_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇦🇺", reviews: 78},
-
-                        // 🇧🇷 Бразилия
-                        {id: 46, name: "🇧🇷 Brazil +55 | Premium BR", description: "Премиум бразильский номер", price: 170, originalPrice: 260, seller: "BR_Premium", rating: 4.6, inStock: true, category: "premium", icon: "🇧🇷", reviews: 89},
-                        {id: 47, name: "🇧🇷 Brazil +55 | Standard BR", description: "Стандартный номер Бразилии", price: 130, originalPrice: 190, seller: "BR_Standard", rating: 4.4, inStock: true, category: "budget", icon: "🇧🇷", reviews: 56},
-
-                        // 🇲🇽 Мексика
-                        {id: 48, name: "🇲🇽 Mexico +52 | Premium MX", description: "Премиум мексиканский номер", price: 160, originalPrice: 240, seller: "MX_Premium", rating: 4.5, inStock: true, category: "premium", icon: "🇲🇽", reviews: 67},
-                        {id: 49, name: "🇲🇽 Mexico +52 | Budget MX", description: "Бюджетный номер Мексики", price: 110, originalPrice: 160, seller: "MX_Budget", rating: 4.3, inStock: true, category: "budget", icon: "🇲🇽", reviews: 34},
-
-                        // 🇦🇷 Аргентина
-                        {id: 50, name: "🇦🇷 Argentina +54 | Standard AR", description: "Стандартный номер Аргентины", price: 140, originalPrice: 200, seller: "AR_Standard", rating: 4.4, inStock: true, category: "budget", icon: "🇦🇷", reviews: 45},
-                        {id: 51, name: "🇦🇷 Argentina +54 | Budget AR", description: "Бюджетный номер Аргентины", price: 100, originalPrice: 150, seller: "AR_Budget", rating: 4.2, inStock: true, category: "budget", icon: "🇦🇷", reviews: 23},
-
-                        // 🇹🇷 Турция
-                        {id: 52, name: "🇹🇷 Turkey +90 | Premium TR", description: "Премиум турецкий номер", price: 150, originalPrice: 220, seller: "TR_Premium", rating: 4.6, inStock: true, category: "premium", icon: "🇹🇷", reviews: 134},
-                        {id: 53, name: "🇹🇷 Turkey +90 | Budget TR", description: "Бюджетный номер Турции", price: 95, originalPrice: 140, seller: "TR_Budget", rating: 4.3, inStock: true, category: "budget", icon: "🇹🇷", reviews: 89},
-
-                        // 🇿🇦 Южная Африка
-                        {id: 54, name: "🇿🇦 South Africa +27 | Premium ZA", description: "Премиум номер ЮАР", price: 180, originalPrice: 280, seller: "ZA_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇿🇦", reviews: 76},
-                        {id: 55, name: "🇿🇦 South Africa +27 | Standard ZA", description: "Стандартный номер ЮАР", price: 140, originalPrice: 200, seller: "ZA_Standard", rating: 4.5, inStock: true, category: "budget", icon: "🇿🇦", reviews: 45},
-
-                        // 🇳🇬 Нигерия
-                        {id: 56, name: "🇳🇬 Nigeria +234 | Premium NG", description: "Премиум номер Нигерии", price: 160, originalPrice: 240, seller: "NG_Premium", rating: 4.6, inStock: true, category: "premium", icon: "🇳🇬", reviews: 67},
-                        {id: 57, name: "🇳🇬 Nigeria +234 | Budget NG", description: "Бюджетный номер Нигерии", price: 105, originalPrice: 155, seller: "NG_Budget", rating: 4.3, inStock: true, category: "budget", icon: "🇳🇬", reviews: 34},
-
-                        // 🇪🇬 Египет
-                        {id: 58, name: "🇪🇬 Egypt +20 | Premium EG", description: "Премиум египетский номер", price: 150, originalPrice: 220, seller: "EG_Premium", rating: 4.5, inStock: true, category: "premium", icon: "🇪🇬", reviews: 89},
-                        {id: 59, name: "🇪🇬 Egypt +20 | Budget EG", description: "Бюджетный номер Египта", price: 100, originalPrice: 150, seller: "EG_Budget", rating: 4.2, inStock: true, category: "budget", icon: "🇪🇬", reviews: 56},
-
-                        // 🇷🇺 Россия
-                        {id: 60, name: "🇷🇺 Russia +7 | Business RU", description: "Бизнес номер России", price: 200, originalPrice: 320, seller: "RU_Business", rating: 4.8, inStock: true, category: "premium", icon: "🇷🇺", reviews: 456},
-                        {id: 61, name: "🇷🇺 Russia +7 | Premium RU", description: "Премиум российский номер", price: 160, originalPrice: 240, seller: "RU_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇷🇺", reviews: 334},
-                        {id: 62, name: "🇷🇺 Russia +7 | Standard RU", description: "Стандартный номер России", price: 120, originalPrice: 180, seller: "RU_Standard", rating: 4.5, inStock: true, category: "budget", icon: "🇷🇺", reviews: 267},
-                        {id: 63, name: "🇷🇺 Russia +7 | Budget RU", description: "Бюджетный номер России", price: 95, originalPrice: 140, seller: "RU_Budget", rating: 4.3, inStock: true, category: "budget", icon: "🇷🇺", reviews: 189},
-
-                        // 🇺🇦 Украина
-                        {id: 64, name: "🇺🇦 Ukraine +380 | Premium UA", description: "Премиум украинский номер", price: 140, originalPrice: 210, seller: "UA_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇺🇦", reviews: 189},
-                        {id: 65, name: "🇺🇦 Ukraine +380 | Budget UA", description: "Бюджетный номер Украины", price: 90, originalPrice: 130, seller: "UA_Budget", rating: 4.4, inStock: true, category: "budget", icon: "🇺🇦", reviews: 134},
-
                         // Дополнительные товары
                         {id: 66, name: "🇺🇸 USA +1 | VIP Account", description: "VIP аккаунт США с приоритетной поддержкой", price: 350, originalPrice: 500, seller: "VIP_Provider", rating: 5.0, inStock: true, category: "usa premium", icon: "👑", reviews: 78},
                         {id: 67, name: "🇬🇧 UK +44 | Elite Number", description: "Элитный номер Великобритании", price: 280, originalPrice: 400, seller: "Elite_UK", rating: 4.9, inStock: true, category: "europe premium", icon: "💎", reviews: 92},
@@ -857,17 +916,50 @@
             }];
         }
 
-        function displayProducts() {
-            const productsGrid = document.getElementById('productsGrid');
+        function displayProductsByCategory() {
+            // Telegram Premium
+            const telegramProducts = allProducts.filter(p => p.category.includes('telegram'));
+            displayProductsInGrid('telegramProducts', telegramProducts);
+            
+            // Звезды
+            const starsProducts = allProducts.filter(p => p.category.includes('stars'));
+            displayProductsInGrid('starsProducts', starsProducts);
+            
+            // Номера (все номера кроме бюджетных)
+            const numbersProducts = allProducts.filter(p => 
+                !p.category.includes('telegram') && 
+                !p.category.includes('stars') && 
+                !p.category.includes('budget')
+            );
+            displayProductsInGrid('numbersProducts', numbersProducts);
+            
+            // Бюджет
+            const budgetProducts = allProducts.filter(p => p.category.includes('budget'));
+            displayProductsInGrid('budgetProducts', budgetProducts);
+            
+            // США
+            const usaProducts = allProducts.filter(p => p.category.includes('usa'));
+            displayProductsInGrid('usaProducts', usaProducts);
+            
+            // Европа
+            const europeProducts = allProducts.filter(p => p.category.includes('europe'));
+            displayProductsInGrid('europeProducts', europeProducts);
+            
+            // Общее количество товаров
             const productCount = document.getElementById('productCount');
-            
+            if (productCount) {
+                const inStockCount = allProducts.filter(p => p.inStock).length;
+                productCount.textContent = inStockCount;
+            }
+        }
+
+        function displayProductsInGrid(gridId, products) {
+            const productsGrid = document.getElementById(gridId);
             if (!productsGrid) return;
-            
-            const filteredProducts = filterProducts(allProducts);
             
             productsGrid.innerHTML = '';
             
-            if (filteredProducts.length === 0) {
+            if (products.length === 0) {
                 productsGrid.innerHTML = `
                     <div style="grid-column: 1 / -1; text-align: center; color: #ff6666; padding: 40px;">
                         <div style="font-size: 4em; margin-bottom: 20px;">🔍</div>
@@ -878,7 +970,7 @@
                 return;
             }
             
-            filteredProducts.forEach((product, index) => {
+            products.forEach((product, index) => {
                 const productCard = document.createElement('div');
                 productCard.className = 'product-card';
                 
@@ -927,24 +1019,6 @@
                 `;
                 productsGrid.appendChild(productCard);
             });
-            
-            if (productCount) {
-                const inStockCount = filteredProducts.filter(p => p.inStock).length;
-                productCount.textContent = inStockCount;
-            }
-        }
-
-        function filterProducts(products) {
-            switch(currentFilter) {
-                case 'in-stock': return products.filter(p => p.inStock);
-                case 'premium': return products.filter(p => p.category.includes('premium') || p.price > 150);
-                case 'telegram': return products.filter(p => p.category.includes('telegram'));
-                case 'stars': return products.filter(p => p.category.includes('stars'));
-                case 'budget': return products.filter(p => p.price <= 100);
-                case 'usa': return products.filter(p => p.category.includes('usa'));
-                case 'europe': return products.filter(p => p.category.includes('europe'));
-                default: return products;
-            }
         }
 
         function setFilter(filter) {
@@ -953,10 +1027,7 @@
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
-            displayProducts();
-            
-            // Прокрутка к товарам
-            document.getElementById('productsGrid').scrollIntoView({ behavior: 'smooth' });
+            displayProductsByCategory();
         }
 
         function addToCart(productId) {
@@ -1046,14 +1117,15 @@
         }
 
         function showLoading(show) {
-            const productsGrid = document.getElementById('productsGrid');
             if (show) {
-                productsGrid.innerHTML = `
-                    <div class="loading">
-                        <div class="loading-spinner"></div>
-                        <p>Загрузка товаров...</p>
-                    </div>
-                `;
+                document.querySelectorAll('.products-grid').forEach(grid => {
+                    grid.innerHTML = `
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            <p>Загрузка товаров...</p>
+                        </div>
+                    `;
+                });
             }
         }
 
@@ -1086,6 +1158,18 @@
             updateTime();
             
             window.addEventListener('scroll', handleScroll);
+            
+            // Плавная прокрутка для навигационных ссылок
+            document.querySelectorAll('.nav-btn').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
         });
 
         window.addEventListener('error', function(e) {
