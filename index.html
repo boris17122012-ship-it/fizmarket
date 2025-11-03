@@ -18,6 +18,7 @@
             min-height: 100vh;
             padding: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .bg-animation {
@@ -112,6 +113,87 @@
         .cart-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+        }
+
+        .premium-section {
+            background: linear-gradient(135deg, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #8b0000;
+            text-align: center;
+        }
+
+        .premium-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffd700, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .premium-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .premium-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #ffd700;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .premium-card h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .premium-card p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .premium-btn {
+            background: linear-gradient(45deg, #ffd700, #ffa500);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .premium-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .section-indicator {
+            text-align: center;
+            margin: 30px 0;
+            color: #ff6666;
+            font-size: 1.2em;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .section-indicator.visible {
+            opacity: 1;
         }
 
         .filters {
@@ -292,6 +374,12 @@
             font-weight: 500;
         }
 
+        .review-date {
+            color: #888;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
         .review-text {
             color: #ccc;
             margin-top: 2px;
@@ -413,6 +501,7 @@
             .stats { flex-direction: column; gap: 10px; }
             .filters { flex-direction: column; }
             .refresh-btn { margin-left: 0; width: 100%; }
+            .premium-cards { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -434,6 +523,33 @@
             <a href="cart.html" class="cart-link" id="cartLink">
                 🛒 Перейти в корзину (<span id="headerCartCount">0</span>)
             </a>
+        </div>
+
+        <div class="premium-section">
+            <h2>👑 ПРЕМИУМ РАЗДЕЛ</h2>
+            <p>Эксклюзивные предложения для постоянных клиентов</p>
+            
+            <div class="premium-cards">
+                <div class="premium-card">
+                    <h3>💎 Telegram Premium</h3>
+                    <p>Полный доступ ко всем функциям Telegram Premium</p>
+                    <a href="#telegram-section" class="premium-btn">Выбрать</a>
+                </div>
+                <div class="premium-card">
+                    <h3>⭐ Звезды Telegram</h3>
+                    <p>Звезды для донатов и покупок в Telegram</p>
+                    <a href="#stars-section" class="premium-btn">Выбрать</a>
+                </div>
+                <div class="premium-card">
+                    <h3>🌍 Премиум номера</h3>
+                    <p>Элитные номера со всего мира</p>
+                    <a href="#premium-numbers" class="premium-btn">Выбрать</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-indicator" id="sectionIndicator">
+            🔍 Выберите раздел для просмотра товаров
         </div>
 
         <div class="filters">
@@ -484,30 +600,53 @@
             "Zero_Knowledge", "DeFi_Master", "Smart_Contract", "Miner_47", "Hash_Rate",
             "Token_Max", "Wallet_Secure", "DEX_Trader", "Oracle_Node", "Liquidity_Pool",
             "Staking_Pro", "Yield_Farmer", "Gas_Optimizer", "MEV_Bot", "Flash_Loan",
-            "Cross_Chain", "Layer2_User", "ZK_Rollup", "Side_Chain", "Bridge_Node"
+            "Cross_Chain", "Layer2_User", "ZK_Rollup", "Side_Chain", "Bridge_Node",
+            "Crypto_Enthusiast", "Blockchain_Dev", "Web3_User", "Metaverse_Explorer", "DAO_Member"
         ];
 
-        const reviewSuffixes = ["| 2%", "| 5%", "| VIP", "| Pro", "| Elite", "| Alpha", "| Beta", "| Gamma"];
+        const reviewSuffixes = ["| 2%", "| 5%", "| VIP", "| Pro", "| Elite", "| Alpha", "| Beta", "| Gamma", "| Omega"];
+
+        // Генератор случайных дат за последние 30 дней
+        function getRandomDate() {
+            const now = new Date();
+            const daysAgo = Math.floor(Math.random() * 30);
+            const date = new Date(now);
+            date.setDate(now.getDate() - daysAgo);
+            return date.toLocaleDateString('ru-RU');
+        }
 
         function getRandomReview() {
             const nick = reviewNicks[Math.floor(Math.random() * reviewNicks.length)];
             const suffix = reviewSuffixes[Math.floor(Math.random() * reviewSuffixes.length)];
+            
             const reviews = [
-                "Быстрая доставка, все работает",
-                "Качество на уровне, рекомендую",
-                "Уже третий заказ, все четко",
-                "Приятно удивлен скоростью",
-                "Профессиональный сервис",
-                "Лучший магазин 2024",
-                "Моментальная выдача",
-                "Качественный товар",
-                "Буду рекомендовать друзьям",
-                "Все как в описании"
+                "Быстрая доставка, все работает отлично, рекомендую!",
+                "Качество на высшем уровне, приятно удивлен сервисом.",
+                "Уже третий заказ, все четко и без проблем.",
+                "Приятно удивлен скоростью обработки заказа.",
+                "Профессиональный сервис, буду обращаться еще.",
+                "Лучший магазин 2024 года, без сомнений.",
+                "Моментальная выдача товара, все как обещали.",
+                "Качественный товар, соответствует описанию полностью.",
+                "Буду рекомендовать друзьям, отличный сервис.",
+                "Все как в описании, доставка быстрая, спасибо!",
+                "Отличное соотношение цены и качества, доволен покупкой.",
+                "Работает без нареканий, поддержка отвечает быстро.",
+                "Заказывал впервые, все прошло гладко, спасибо.",
+                "Быстрее чем ожидал, качество на уровне.",
+                "Просто супер! Все работает, проблем нет.",
+                "Цена адекватная, сервис отличный, что еще нужно?",
+                "Приятные бонусы к заказу, не ожидал такого.",
+                "Все четко, быстро, качественно. Рекомендую!",
+                "Лучше чем у конкурентов, проверено лично.",
+                "Оперативно и качественно, спасибо за работу!"
             ];
+            
             const review = reviews[Math.floor(Math.random() * reviews.length)];
             return {
                 user: `${nick} ${suffix}`,
-                text: review
+                text: review,
+                date: getRandomDate()
             };
         }
 
@@ -694,7 +833,19 @@
 
                         // 🇺🇦 Украина
                         {id: 64, name: "🇺🇦 Ukraine +380 | Premium UA", description: "Премиум украинский номер", price: 140, originalPrice: 210, seller: "UA_Premium", rating: 4.7, inStock: true, category: "premium", icon: "🇺🇦", reviews: 189},
-                        {id: 65, name: "🇺🇦 Ukraine +380 | Budget UA", description: "Бюджетный номер Украины", price: 90, originalPrice: 130, seller: "UA_Budget", rating: 4.4, inStock: true, category: "budget", icon: "🇺🇦", reviews: 134}
+                        {id: 65, name: "🇺🇦 Ukraine +380 | Budget UA", description: "Бюджетный номер Украины", price: 90, originalPrice: 130, seller: "UA_Budget", rating: 4.4, inStock: true, category: "budget", icon: "🇺🇦", reviews: 134},
+
+                        // Дополнительные товары
+                        {id: 66, name: "🇺🇸 USA +1 | VIP Account", description: "VIP аккаунт США с приоритетной поддержкой", price: 350, originalPrice: 500, seller: "VIP_Provider", rating: 5.0, inStock: true, category: "usa premium", icon: "👑", reviews: 78},
+                        {id: 67, name: "🇬🇧 UK +44 | Elite Number", description: "Элитный номер Великобритании", price: 280, originalPrice: 400, seller: "Elite_UK", rating: 4.9, inStock: true, category: "europe premium", icon: "💎", reviews: 92},
+                        {id: 68, name: "🇩🇪 Germany +49 | Exclusive DE", description: "Эксклюзивный немецкий номер", price: 240, originalPrice: 350, seller: "Exclusive_DE", rating: 4.8, inStock: true, category: "europe premium", icon: "🌟", reviews: 67},
+                        {id: 69, name: "🇫🇷 France +33 | Luxury FR", description: "Люксовый французский номер", price: 220, originalPrice: 320, seller: "Luxury_FR", rating: 4.8, inStock: true, category: "europe premium", icon: "💼", reviews: 54},
+                        {id: 70, name: "🇯🇵 Japan +81 | Exclusive JP", description: "Эксклюзивный японский номер", price: 300, originalPrice: 450, seller: "Exclusive_JP", rating: 4.9, inStock: true, category: "asia premium", icon: "🎌", reviews: 89},
+                        {id: 71, name: "🇦🇪 UAE +971 | Luxury AE", description: "Люксовый номер ОАЭ", price: 320, originalPrice: 480, seller: "Luxury_AE", rating: 4.9, inStock: true, category: "asia premium", icon: "🕌", reviews: 76},
+                        {id: 72, name: "🇸🇬 Singapore +65 | Exclusive SG", description: "Эксклюзивный сингапурский номер", price: 280, originalPrice: 420, seller: "Exclusive_SG", rating: 4.8, inStock: true, category: "asia premium", icon: "🌆", reviews: 63},
+                        {id: 73, name: "🇦🇺 Australia +61 | Luxury AU", description: "Люксовый австралийский номер", price: 260, originalPrice: 390, seller: "Luxury_AU", rating: 4.8, inStock: true, category: "premium", icon: "🦘", reviews: 58},
+                        {id: 74, name: "🇨🇦 Canada +1 | Exclusive CA", description: "Эксклюзивный канадский номер", price: 240, originalPrice: 360, seller: "Exclusive_CA", rating: 4.8, inStock: true, category: "canada premium", icon: "🍁", reviews: 72},
+                        {id: 75, name: "🇧🇷 Brazil +55 | Luxury BR", description: "Люксовый бразильский номер", price: 200, originalPrice: 300, seller: "Luxury_BR", rating: 4.7, inStock: true, category: "premium", icon: "🌴", reviews: 45}
                     ]);
                 }, 1000);
             });
@@ -757,7 +908,7 @@
                         <div style="color: #ff6666; font-size: 0.9em; margin-bottom: 8px; font-weight: 500;">📝 Последние отзывы:</div>
                         ${productReviews.map(review => `
                             <div class="review-item">
-                                <div class="review-user">${review.user}</div>
+                                <div class="review-user">${review.user} <span class="review-date">${review.date}</span></div>
                                 <div class="review-text">${review.text}</div>
                             </div>
                         `).join('')}
@@ -803,6 +954,9 @@
             });
             event.target.classList.add('active');
             displayProducts();
+            
+            // Прокрутка к товарам
+            document.getElementById('productsGrid').scrollIntoView({ behavior: 'smooth' });
         }
 
         function addToCart(productId) {
@@ -910,6 +1064,19 @@
             }
         }
 
+        // Отслеживание скролла для показа индикатора
+        function handleScroll() {
+            const indicator = document.getElementById('sectionIndicator');
+            const filters = document.querySelector('.filters');
+            const filtersRect = filters.getBoundingClientRect();
+            
+            if (filtersRect.top < 100) {
+                indicator.classList.add('visible');
+            } else {
+                indicator.classList.remove('visible');
+            }
+        }
+
         // Загрузка при старте
         document.addEventListener('DOMContentLoaded', function() {
             loadCartFromStorage();
@@ -917,6 +1084,8 @@
             
             setInterval(updateTime, 1000);
             updateTime();
+            
+            window.addEventListener('scroll', handleScroll);
         });
 
         window.addEventListener('error', function(e) {
