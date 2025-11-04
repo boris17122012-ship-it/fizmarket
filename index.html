@@ -1152,6 +1152,40 @@
         .hidden-reviews {
             display: none;
         }
+
+        /* Контакты в футере */
+        .footer-contacts {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background: rgba(0, 136, 204, 0.15);
+            padding: 12px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 136, 204, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 136, 204, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .footer-contacts {
+                gap: 15px;
+            }
+            
+            .contact-item {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1272,7 +1306,12 @@
         <div class="footer">
             <p>© 2024 ELITE TELEGRAM SHOP. Премиум аккаунты и услуги</p>
             <p>Анонимные операции • Моментальная доставка • Гарантия качества</p>
-            <p style="margin-top: 15px; color: #66aaff; font-weight: bold;">📱 Telegram: @kentanex</p>
+            
+            <div class="footer-contacts">
+                <div class="contact-item">📱 Telegram: @kentanex</div>
+                <div class="contact-item">📱 Telegram: @awoeg</div>
+                <div class="contact-item">📱 Telegram: @buygiftscool</div>
+            </div>
             
             <div class="footer-links">
                 <a href="cart.html" class="footer-link">🛒 Корзина</a>
