@@ -17,6 +17,7 @@
             color: #ffffff;
             min-height: 100vh;
             padding: 0;
+            overflow-x: hidden;
         }
 
         .bg-animation {
@@ -26,9 +27,50 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(0, 136, 204, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 152, 230, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 100, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 20, 40, 0.8) 100%);
+            z-index: -2;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
+            opacity: 0.6;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(0, 136, 204, 0.3);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .glow-effect {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 136, 204, 0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            animation: pulse 4s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
         }
 
         .container {
@@ -41,11 +83,19 @@
             text-align: center;
             margin-bottom: 40px;
             padding: 50px 20px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(139,0,0,0.7) 100%);
-            border-radius: 15px;
-            border: 1px solid #8b0000;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.85) 0%, 
+                rgba(0, 20, 40, 0.7) 50%,
+                rgba(0, 136, 204, 0.3) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 136, 204, 0.3);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 32px rgba(0, 136, 204, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .header::before {
@@ -55,8 +105,25 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,0,0,0.1), transparent);
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 136, 204, 0.1), 
+                transparent);
             animation: shine 3s infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(0, 136, 204, 0.05) 0%, 
+                transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
         }
 
         @keyframes shine {
@@ -64,19 +131,31 @@
             100% { left: 100%; }
         }
 
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .header h1 {
             font-size: 3.5em;
             margin-bottom: 15px;
-            background: linear-gradient(45deg, #ff0000, #8b0000);
+            background: linear-gradient(45deg, #0088cc, #00aaff, #0088cc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255,0,0,0.5);
+            text-shadow: 0 0 30px rgba(0, 136, 204, 0.5);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 20px rgba(0, 136, 204, 0.5); }
+            100% { text-shadow: 0 0 30px rgba(0, 170, 255, 0.8); }
         }
 
         .header p {
             font-size: 1.3em;
-            color: #ccc;
+            color: #aaccff;
             margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 136, 204, 0.3);
         }
 
         .stats {
@@ -88,17 +167,26 @@
         }
 
         .stat-item {
-            background: rgba(139, 0, 0, 0.3);
+            background: rgba(0, 136, 204, 0.15);
             padding: 12px 24px;
             border-radius: 25px;
-            border: 1px solid #8b0000;
+            border: 1px solid rgba(0, 136, 204, 0.3);
             font-weight: 500;
-            color: #ffcccb;
+            color: #aaccff;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(0, 136, 204, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.2);
         }
 
         .back-link {
             display: inline-block;
-            background: linear-gradient(45deg, #8b0000, #ff0000);
+            background: linear-gradient(45deg, #0088cc, #00aaff);
             color: #000;
             padding: 12px 25px;
             border-radius: 25px;
@@ -106,11 +194,13 @@
             font-weight: bold;
             margin-top: 20px;
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .back-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
         }
 
         .cart-content {
@@ -127,28 +217,39 @@
         }
 
         .cart-items {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.6);
             padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #8b0000;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 136, 204, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 32px rgba(0, 136, 204, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .cart-summary {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.6);
             padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #8b0000;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 136, 204, 0.2);
             height: fit-content;
             position: sticky;
             top: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 32px rgba(0, 136, 204, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .section-title {
-            color: #ffcccb;
+            color: #aaccff;
             font-size: 1.8em;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #8b0000;
+            border-bottom: 2px solid rgba(0, 136, 204, 0.3);
+            text-shadow: 0 0 10px rgba(0, 136, 204, 0.3);
         }
 
         .cart-item {
@@ -156,16 +257,21 @@
             align-items: center;
             padding: 25px;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(139,0,0,0.2) 100%);
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.7) 0%, 
+                rgba(0, 136, 204, 0.1) 100%);
             border-radius: 15px;
-            border: 1px solid #8b0000;
+            border: 1px solid rgba(0, 136, 204, 0.2);
             transition: all 0.3s ease;
             position: relative;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .cart-item:hover {
-            border: 1px solid #ff0000;
-            transform: translateY(-3px);
+            border: 1px solid rgba(0, 170, 255, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.2);
         }
 
         .cart-item::before {
@@ -175,7 +281,8 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(45deg, #ff0000, #8b0000);
+            background: linear-gradient(45deg, #0088cc, #00aaff);
+            border-radius: 15px 15px 0 0;
         }
 
         .item-icon {
@@ -183,6 +290,7 @@
             margin-right: 25px;
             min-width: 80px;
             text-align: center;
+            filter: drop-shadow(0 0 10px rgba(0, 136, 204, 0.5));
         }
 
         .item-details {
@@ -190,14 +298,15 @@
         }
 
         .item-name {
-            color: #ffcccb;
+            color: #aaccff;
             font-size: 1.3em;
             margin-bottom: 8px;
             font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 136, 204, 0.3);
         }
 
         .item-description {
-            color: #aaa;
+            color: #88aacc;
             margin-bottom: 10px;
             font-size: 0.9em;
         }
@@ -210,7 +319,7 @@
         }
 
         .item-seller {
-            color: #ff6666;
+            color: #66aaff;
         }
 
         .item-rating {
@@ -219,13 +328,14 @@
 
         .item-price {
             font-size: 1.8em;
-            color: #ff4444;
+            color: #00aaff;
             font-weight: bold;
             margin: 15px 0;
+            text-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
         }
 
         .remove-btn {
-            background: linear-gradient(45deg, #8b0000, #ff0000);
+            background: linear-gradient(45deg, #0088cc, #00aaff);
             color: #000;
             border: none;
             padding: 12px 20px;
@@ -234,10 +344,13 @@
             font-weight: bold;
             transition: all 0.3s ease;
             margin-left: 20px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .remove-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
         }
 
         .summary-row {
@@ -245,34 +358,59 @@
             justify-content: space-between;
             margin: 20px 0;
             padding: 12px 0;
-            border-bottom: 1px solid #8b0000;
+            border-bottom: 1px solid rgba(0, 136, 204, 0.2);
+            color: #aaccff;
         }
 
         .summary-total {
             font-size: 1.5em;
             font-weight: bold;
-            color: #ff4444;
+            color: #00aaff;
             margin: 25px 0;
             padding-top: 15px;
-            border-top: 2px solid #8b0000;
+            border-top: 2px solid rgba(0, 136, 204, 0.3);
+            text-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
         }
 
         .checkout-btn {
-            background: linear-gradient(45deg, #8b0000, #ff0000);
+            background: linear-gradient(45deg, #0088cc, #00aaff);
             color: #000;
             border: none;
             padding: 18px;
-            border-radius: 10px;
+            border-radius: 15px;
             font-size: 1.2em;
             cursor: pointer;
             width: 100%;
             transition: all 0.3s ease;
             font-weight: bold;
             margin: 20px 0;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checkout-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.5s;
+        }
+
+        .checkout-btn:hover::before {
+            left: 100%;
         }
 
         .checkout-btn:hover {
             transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.4);
         }
 
         .checkout-btn:disabled {
@@ -284,21 +422,29 @@
         .empty-cart {
             text-align: center;
             padding: 60px 20px;
-            color: #ff6666;
+            color: #66aaff;
         }
 
         .empty-cart-icon {
             font-size: 5em;
             margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(0, 136, 204, 0.5));
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .empty-cart h3 {
             font-size: 2em;
             margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 136, 204, 0.3);
         }
 
         .empty-cart p {
-            color: #ccc;
+            color: #88aacc;
             margin-bottom: 25px;
         }
 
@@ -308,72 +454,108 @@
         }
 
         .payment-title {
-            color: #ffcccb;
+            color: #aaccff;
             margin-bottom: 15px;
             font-weight: 500;
             font-size: 1.2em;
+            text-shadow: 0 0 10px rgba(0, 136, 204, 0.3);
         }
 
         .ton-payment {
-            background: linear-gradient(45deg, #0088cc, #0098e6);
-            border: 1px solid #0088cc;
-            padding: 20px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, 
+                rgba(0, 136, 204, 0.2) 0%, 
+                rgba(0, 152, 230, 0.1) 100%);
+            border: 1px solid rgba(0, 136, 204, 0.3);
+            padding: 25px;
+            border-radius: 20px;
             text-align: center;
             margin: 15px 0;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ton-payment::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(0, 136, 204, 0.1) 0%, 
+                transparent 70%);
+            animation: rotate 15s linear infinite;
+            z-index: -1;
         }
 
         .ton-icon {
             font-size: 3em;
             margin-bottom: 10px;
+            filter: drop-shadow(0 0 15px rgba(0, 136, 204, 0.5));
+            animation: float 3s ease-in-out infinite;
         }
 
         .ton-address {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 12px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
             border-radius: 10px;
             font-family: monospace;
             margin: 15px 0;
             word-break: break-all;
-            border: 1px solid #0088cc;
+            border: 1px solid rgba(0, 136, 204, 0.3);
+            color: #aaccff;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .copy-btn {
-            background: linear-gradient(45deg, #0088cc, #0098e6);
+            background: linear-gradient(45deg, #0088cc, #00aaff);
             color: #000;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
             margin: 10px 0;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .copy-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
         }
 
         .refund-notice {
             text-align: center;
-            color: #888;
+            color: #6688aa;
             font-size: 0.7em;
-            margin: 10px 0;
+            margin: 15px 0;
             line-height: 1.3;
-            padding: 10px;
-            background: rgba(139, 0, 0, 0.1);
-            border-radius: 8px;
-            border: 1px solid #8b0000;
+            padding: 12px;
+            background: rgba(0, 136, 204, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 136, 204, 0.2);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .footer {
             text-align: center;
-            color: #ccc;
+            color: #88aacc;
             margin-top: 50px;
             padding: 30px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            border: 1px solid #8b0000;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 136, 204, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 32px rgba(0, 136, 204, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .footer-links {
@@ -385,29 +567,42 @@
         }
 
         .footer-link {
-            color: #ff6666;
+            color: #66aaff;
             text-decoration: none;
             padding: 8px 16px;
             border-radius: 15px;
-            background: rgba(139, 0, 0, 0.3);
+            background: rgba(0, 136, 204, 0.15);
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .footer-link:hover {
-            background: rgba(255, 0, 0, 0.3);
+            background: rgba(0, 136, 204, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.2);
         }
 
         .notification {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(45deg, #8b0000, #ff0000);
+            background: linear-gradient(45deg, #0088cc, #00aaff);
             color: #000;
             padding: 16px 28px;
             border-radius: 25px;
             font-weight: bold;
             z-index: 1000;
             display: none;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         @media (max-width: 768px) {
@@ -421,6 +616,8 @@
 </head>
 <body>
     <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+    <div class="glow-effect"></div>
 
     <div class="container">
         <div class="header">
@@ -431,7 +628,7 @@
                 <div class="stat-item">🕒 <span id="currentTime">--:--:--</span></div>
                 <div class="stat-item">📦 Товаров: <span id="cartItemsCount">0</span></div>
                 <div class="stat-item">💰 Итого: <span id="totalPrice">0</span> ₽</div>
-                <div class="stat-item">⭐ Звезды 1=1.7₽</div>
+                <div class="stat-item">💎 TON Only</div>
             </div>
 
             <a href="index.html" class="back-link">
@@ -457,7 +654,7 @@
                 
                 <div class="summary-row">
                     <span>Скидка:</span>
-                    <span style="color: #90ee90;" id="discount">0 ₽</span>
+                    <span style="color: #66ff99;" id="discount">0 ₽</span>
                 </div>
                 
                 <div class="summary-row">
@@ -474,14 +671,14 @@
                     <div class="payment-title">💳 Оплата TON</div>
                     <div class="ton-payment">
                         <div class="ton-icon">💎</div>
-                        <div style="margin-bottom: 15px; font-weight: bold;">Оплата только в TON</div>
+                        <div style="margin-bottom: 15px; font-weight: bold; color: #aaccff;">Оплата только в TON</div>
                         <div class="ton-address" id="tonAddress">
                             UQBvG8lCJq1l5V2kQ3jKJwY...
                         </div>
                         <button class="copy-btn" onclick="copyTonAddress()">
                             📋 Скопировать адрес
                         </button>
-                        <div style="font-size: 0.9em; margin-top: 10px; color: #ccc;">
+                        <div style="font-size: 0.9em; margin-top: 10px; color: #88aacc;">
                             Отправьте точную сумму на указанный адрес
                         </div>
                     </div>
@@ -493,10 +690,10 @@
                 </div>
 
                 <button class="checkout-btn" id="checkoutBtn" onclick="checkout()">
-                    💎 ПЕРЕЙТИ К ОПЛАТЕ TON
+                    💎 ОПЛАТИТЬ TON
                 </button>
 
-                <div style="text-align: center; color: #aaa; font-size: 0.9em; margin-top: 20px;">
+                <div style="text-align: center; color: #88aacc; font-size: 0.9em; margin-top: 20px;">
                     ⚡ Моментальная доставка после оплаты<br>
                     🔒 Анонимные операции • 💎 Only TON
                 </div>
@@ -517,12 +714,28 @@
     </div>
 
     <div class="notification" id="notification">
-        💀 Товар удален из корзины!
+        💎 Адрес TON скопирован!
     </div>
 
     <script>
         let cartItems = [];
         const tonAddress = "UQBvG8lCJq1l5V2kQ3jKJwY7aM9nXqR8pLmNtSdFgHhPwZxYcVbAeDfG";
+
+        // Создание частиц
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 6 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.background = `rgba(0, ${136 + Math.random() * 50}, ${204 + Math.random() * 50}, ${0.1 + Math.random() * 0.2})`;
+                particlesContainer.appendChild(particle);
+            }
+        }
 
         function loadCartItems() {
             const savedCart = localStorage.getItem('eliteTelegramCart');
@@ -592,7 +805,7 @@
             
             displayCartItems();
             updateCartSummary();
-            showNotification('💀 Товар удален из корзины!');
+            showNotification('💎 Товар удален из корзины!');
         }
 
         function updateCartSummary() {
@@ -624,7 +837,7 @@
 
         function copyTonAddress() {
             navigator.clipboard.writeText(tonAddress).then(() => {
-                showNotification('✅ Адрес TON скопирован!', 'success');
+                showNotification('💎 Адрес TON скопирован!');
             }).catch(() => {
                 // Fallback для старых браузеров
                 const textArea = document.createElement('textarea');
@@ -633,7 +846,7 @@
                 textArea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textArea);
-                showNotification('✅ Адрес TON скопирован!', 'success');
+                showNotification('💎 Адрес TON скопирован!');
             });
         }
 
@@ -651,7 +864,7 @@
             // Конвертация в TON (примерный курс)
             const tonAmount = (finalTotal / 170).toFixed(4); // Примерный курс 1 TON = 170₽
             
-            showNotification(`💎 Отправьте ${tonAmount} TON на указанный адрес`, 'info');
+            showNotification(`💎 Отправьте ${tonAmount} TON на указанный адрес`);
             
             // В реальном приложении здесь будет интеграция с TON API
             // и отслеживание транзакции
@@ -675,15 +888,11 @@
             
             // Меняем цвет в зависимости от типа
             if (type === 'error') {
-                notification.style.background = 'linear-gradient(45deg, #8b0000, #ff0000)';
+                notification.style.background = 'linear-gradient(45deg, #cc0000, #ff4444)';
             } else if (type === 'success') {
-                notification.style.background = 'linear-gradient(45deg, #006400, #008000)';
-            } else if (type === 'warning') {
-                notification.style.background = 'linear-gradient(45deg, #ff8c00, #ffa500)';
-            } else if (type === 'info') {
-                notification.style.background = 'linear-gradient(45deg, #0088cc, #0098e6)';
+                notification.style.background = 'linear-gradient(45deg, #00cc00, #44ff44)';
             } else {
-                notification.style.background = 'linear-gradient(45deg, #8b0000, #ff0000)';
+                notification.style.background = 'linear-gradient(45deg, #0088cc, #00aaff)';
             }
             
             notification.textContent = message;
@@ -703,6 +912,7 @@
 
         // Загрузка при старте
         document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
             loadCartItems();
             
             setInterval(updateTime, 1000);
