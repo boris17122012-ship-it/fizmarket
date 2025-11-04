@@ -169,6 +169,131 @@
             font-size: 1.1em;
         }
 
+        .support-section {
+            background: linear-gradient(135deg, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid #8b0000;
+            text-align: center;
+        }
+
+        .support-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .support-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #8b0000;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid #ff0000;
+        }
+
+        .support-card h3 {
+            color: #ffcccb;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .support-card p {
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .support-btn {
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .support-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .reviews-section {
+            background: linear-gradient(135deg, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid #8b0000;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .review-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #8b0000;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+            border: 1px solid #ff0000;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-user {
+            color: #ff6666;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .review-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .review-rating {
+            color: #ffcc00;
+            margin: 10px 0;
+        }
+
+        .review-text {
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .review-product {
+            color: #ff9999;
+            font-size: 0.9em;
+            border-top: 1px solid #8b0000;
+            padding-top: 10px;
+        }
+
         .premium-section {
             background: linear-gradient(135deg, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);
             border-radius: 15px;
@@ -557,6 +682,8 @@
             .refresh-btn { margin-left: 0; width: 100%; }
             .premium-cards { grid-template-columns: 1fr; }
             .navigation { flex-direction: column; }
+            .support-cards { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -585,9 +712,106 @@
             <a href="#telegram-section" class="nav-btn">📱 Telegram</a>
             <a href="#stars-section" class="nav-btn">⭐ Звезды</a>
             <a href="#numbers-section" class="nav-btn">📞 Номера</a>
-            <a href="#budget-section" class="nav-btn">💰 Бюджет</a>
-            <a href="#usa-section" class="nav-btn">🇺🇸 США</a>
-            <a href="#europe-section" class="nav-btn">🇪🇺 Европа</a>
+            <a href="#support-section" class="nav-btn">🆘 Поддержка</a>
+            <a href="#reviews-section" class="nav-btn">⭐ Отзывы</a>
+        </div>
+
+        <!-- Раздел Поддержки -->
+        <div class="support-section" id="support-section">
+            <h2>🆘 ПОДДЕРЖКА И КОНТАКТЫ</h2>
+            <p>Мы всегда готовы помочь вам 24/7</p>
+            
+            <div class="support-cards">
+                <div class="support-card">
+                    <h3>💬 Telegram Поддержка</h3>
+                    <p>Быстрая помощь через Telegram. Отвечаем в течение 5-15 минут</p>
+                    <a href="https://t.me/awoeg" target="_blank" class="support-btn">
+                        📞 Написать в Telegram
+                    </a>
+                </div>
+                
+                <div class="support-card">
+                    <h3>🎮 Discord Сервер</h3>
+                    <p>Присоединяйтесь к нашему Discord сообществу для общения и поддержки</p>
+                    <a href="https://discord.gg/q88Yz2MV" target="_blank" class="support-btn">
+                        🎮 Присоединиться к Discord
+                    </a>
+                </div>
+                
+                <div class="support-card">
+                    <h3>📧 Другие контакты</h3>
+                    <p>Дополнительные способы связи и поддержки</p>
+                    <a href="https://t.me/buygiftscool" target="_blank" class="support-btn">
+                        🎁 BuyGifts Telegram
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Раздел Отзывов -->
+        <div class="reviews-section" id="reviews-section">
+            <h2>⭐ ОТЗЫВЫ КЛИЕНТОВ</h2>
+            <p>Что говорят наши покупатели</p>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-user">Crypto_Trader | VIP</div>
+                        <div class="review-date">15.12.2024</div>
+                    </div>
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text">
+                        Заказывал Telegram Premium на год. Доставка моментальная, все работает отлично. 
+                        Поддержка отвечает быстро, помогли с активацией. Рекомендую!
+                    </div>
+                    <div class="review-product">📱 Telegram Premium 12 Months</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-user">NFT_Hunter | Pro</div>
+                        <div class="review-date">14.12.2024</div>
+                    </div>
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text">
+                        Покупал звезды для донатов. Курс выгодный, перевод быстрый. 
+                        Уже не первый раз обращаюсь, всегда качественный сервис.
+                    </div>
+                    <div class="review-product">⭐ 1000 Stars Telegram</div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-user">Dark_Market | Elite</div>
+                        <div class="review-date">13.12.2024</div>
+                    </div>
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text">
+                        Брал номер США для бизнеса. Качество на высоте, номер верифицированный. 
+                        Поддержка помогла с настройкой. Отличный магазин!
+                    </div>
+                    <div class="review-product">🇺🇸 USA +1 | Business Number</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-user">Blockchain_Dev | 5%</div>
+                        <div class="review-date">12.12.2024</div>
+                    </div>
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text">
+                        Заказывал несколько номеров для тестирования. Все работает стабильно, 
+                        доставка мгновенная. Цены адекватные, буду сотрудничать дальше.
+                    </div>
+                    <div class="review-product">📞 Набор номеров</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://t.me/FIZmarketrep" target="_blank" class="support-btn" style="width: auto; padding: 15px 30px;">
+                    💬 Читать все отзывы в Telegram
+                </a>
+            </div>
         </div>
 
         <div class="premium-section" id="premium-section">
@@ -663,54 +887,15 @@
             </div>
         </div>
 
-        <!-- Раздел Бюджет -->
-        <div class="section-title" id="budget-section">
-            <h2>💰 БЮДЖЕТНЫЕ ПРЕДЛОЖЕНИЯ</h2>
-            <p>Доступные варианты для экономных покупателей</p>
-        </div>
-
-        <div class="products-grid" id="budgetProducts">
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <p>Загрузка бюджетных товаров...</p>
-            </div>
-        </div>
-
-        <!-- Раздел США -->
-        <div class="section-title" id="usa-section">
-            <h2>🇺🇸 АМЕРИКАНСКИЕ НОМЕРА</h2>
-            <p>Номера США для международных сервисов</p>
-        </div>
-
-        <div class="products-grid" id="usaProducts">
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <p>Загрузка американских номеров...</p>
-            </div>
-        </div>
-
-        <!-- Раздел Европа -->
-        <div class="section-title" id="europe-section">
-            <h2>🇪🇺 ЕВРОПЕЙСКИЕ НОМЕРА</h2>
-            <p>Номера из стран Европейского союза</p>
-        </div>
-
-        <div class="products-grid" id="europeProducts">
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <p>Загрузка европейских номеров...</p>
-            </div>
-        </div>
-
         <div class="footer">
             <p>© 2024 ELITE TELEGRAM SHOP. Черный рынок премиум аккаунтов</p>
             <p>Анонимные операции • Моментальная доставка • Гарантия качества</p>
             
             <div class="footer-links">
                 <a href="cart.html" class="footer-link">🛒 Корзина</a>
-                <a href="https://t.me/awoeg" target="_blank" class="footer-link">📞 Поддержка @awoeg</a>
-                <a href="https://t.me/buygiftscool" target="_blank" class="footer-link">🎁 Поддержка @buygiftscool</a>
-                <a href="https://discord.gg/arestt" target="_blank" class="footer-link">🎮 Discord</a>
+                <a href="#support-section" class="footer-link">🆘 Поддержка</a>
+                <a href="#reviews-section" class="footer-link">⭐ Отзывы</a>
+                <a href="https://fizmarket.vercel.app/" target="_blank" class="footer-link">🌐 FIZ Market</a>
             </div>
         </div>
     </div>
@@ -811,6 +996,11 @@
             }
         }
 
+        // Функция для проверки, есть ли товар уже в корзине
+        function isProductInCart(productId) {
+            return cartItems.some(item => item.id === productId);
+        }
+
         async function loadProducts() {
             showLoading(true);
             
@@ -865,35 +1055,6 @@
                         {id: 9, name: "🇬🇧 UK +44 | Premium Number", description: "Премиум британский номер", price: 190, originalPrice: 290, seller: "UK_Premium", rating: 4.7, inStock: true, category: "europe premium", icon: "🇬🇧", reviews: 178},
                         {id: 10, name: "🇬🇧 UK +44 | Standard UK", description: "Стандартный номер UK", price: 150, originalPrice: 220, seller: "UK_Standard", rating: 4.5, inStock: true, category: "europe", icon: "🇬🇧", reviews: 145},
 
-                        // 🇩🇪 Германия
-                        {id: 11, name: "🇩🇪 Germany +49 | Business DE", description: "Бизнес номер Германии", price: 210, originalPrice: 340, seller: "DE_Business", rating: 4.8, inStock: true, category: "europe premium", icon: "🇩🇪", reviews: 189},
-                        {id: 12, name: "🇩🇪 Germany +49 | Premium DE", description: "Премиум немецкий номер", price: 170, originalPrice: 260, seller: "DE_Premium", rating: 4.7, inStock: true, category: "europe premium", icon: "🇩🇪", reviews: 134},
-                        {id: 13, name: "🇩🇪 Germany +49 | Standard DE", description: "Стандартный номер Германии", price: 130, originalPrice: 190, seller: "DE_Standard", rating: 4.5, inStock: true, category: "europe", icon: "🇩🇪", reviews: 98},
-
-                        // 🇫🇷 Франция
-                        {id: 14, name: "🇫🇷 France +33 | Premium FR", description: "Премиум французский номер", price: 180, originalPrice: 280, seller: "FR_Premium", rating: 4.7, inStock: true, category: "europe premium", icon: "🇫🇷", reviews: 112},
-                        {id: 15, name: "🇫🇷 France +33 | Standard FR", description: "Стандартный номер Франции", price: 140, originalPrice: 200, seller: "FR_Standard", rating: 4.5, inStock: true, category: "europe", icon: "🇫🇷", reviews: 87},
-
-                        // 🇮🇹 Италия
-                        {id: 16, name: "🇮🇹 Italy +39 | Premium IT", description: "Премиум итальянский номер", price: 170, originalPrice: 260, seller: "IT_Premium", rating: 4.6, inStock: true, category: "europe premium", icon: "🇮🇹", reviews: 76},
-                        {id: 17, name: "🇮🇹 Italy +39 | Standard IT", description: "Стандартный номер Италии", price: 130, originalPrice: 180, seller: "IT_Standard", rating: 4.4, inStock: true, category: "europe", icon: "🇮🇹", reviews: 54},
-
-                        // 🇪🇸 Испания
-                        {id: 18, name: "🇪🇸 Spain +34 | Premium ES", description: "Премиум испанский номер", price: 160, originalPrice: 240, seller: "ES_Premium", rating: 4.6, inStock: true, category: "europe premium", icon: "🇪🇸", reviews: 89},
-                        {id: 19, name: "🇪🇸 Spain +34 | Standard ES", description: "Стандартный номер Испании", price: 120, originalPrice: 170, seller: "ES_Standard", rating: 4.4, inStock: true, category: "europe", icon: "🇪🇸", reviews: 67},
-
-                        // 🇵🇱 Польша
-                        {id: 20, name: "🇵🇱 Poland +48 | Premium PL", description: "Премиум польский номер", price: 150, originalPrice: 220, seller: "PL_Premium", rating: 4.5, inStock: true, category: "europe premium", icon: "🇵🇱", reviews: 78},
-                        {id: 21, name: "🇵🇱 Poland +48 | Budget PL", description: "Бюджетный номер Польши", price: 100, originalPrice: 150, seller: "PL_Budget", rating: 4.3, inStock: true, category: "europe budget", icon: "🇵🇱", reviews: 45},
-
-                        // 🇳🇱 Нидерланды
-                        {id: 22, name: "🇳🇱 Netherlands +31 | Premium NL", description: "Премиум голландский номер", price: 170, originalPrice: 250, seller: "NL_Premium", rating: 4.7, inStock: true, category: "europe premium", icon: "🇳🇱", reviews: 92},
-                        {id: 23, name: "🇳🇱 Netherlands +31 | Standard NL", description: "Стандартный номер Нидерландов", price: 130, originalPrice: 190, seller: "NL_Standard", rating: 4.5, inStock: true, category: "europe", icon: "🇳🇱", reviews: 61},
-
-                        // 🇸🇪 Швеция
-                        {id: 24, name: "🇸🇪 Sweden +46 | Premium SE", description: "Премиум шведский номер", price: 190, originalPrice: 290, seller: "SE_Premium", rating: 4.8, inStock: true, category: "europe premium", icon: "🇸🇪", reviews: 84},
-                        {id: 25, name: "🇸🇪 Sweden +46 | Standard SE", description: "Стандартный номер Швеции", price: 140, originalPrice: 210, seller: "SE_Standard", rating: 4.6, inStock: true, category: "europe", icon: "🇸🇪", reviews: 53},
-
                         // Дополнительные товары
                         {id: 66, name: "🇺🇸 USA +1 | VIP Account", description: "VIP аккаунт США с приоритетной поддержкой", price: 350, originalPrice: 500, seller: "VIP_Provider", rating: 5.0, inStock: true, category: "usa premium", icon: "👑", reviews: 78},
                         {id: 67, name: "🇬🇧 UK +44 | Elite Number", description: "Элитный номер Великобритании", price: 280, originalPrice: 400, seller: "Elite_UK", rating: 4.9, inStock: true, category: "europe premium", icon: "💎", reviews: 92},
@@ -933,18 +1094,6 @@
             );
             displayProductsInGrid('numbersProducts', numbersProducts);
             
-            // Бюджет
-            const budgetProducts = allProducts.filter(p => p.category.includes('budget'));
-            displayProductsInGrid('budgetProducts', budgetProducts);
-            
-            // США
-            const usaProducts = allProducts.filter(p => p.category.includes('usa'));
-            displayProductsInGrid('usaProducts', usaProducts);
-            
-            // Европа
-            const europeProducts = allProducts.filter(p => p.category.includes('europe'));
-            displayProductsInGrid('europeProducts', europeProducts);
-            
             // Общее количество товаров
             const productCount = document.getElementById('productCount');
             if (productCount) {
@@ -975,6 +1124,7 @@
                 productCard.className = 'product-card';
                 
                 const productReviews = getRandomReviews();
+                const isInCart = isProductInCart(product.id);
                 
                 productCard.innerHTML = `
                     <div class="product-icon">${product.icon}</div>
@@ -1011,10 +1161,10 @@
                         <span class="update-time">🕒 ${new Date().toLocaleTimeString()}</span>
                     </div>
                     
-                    <button class="btn ${!product.inStock ? 'disabled' : ''}" 
+                    <button class="btn ${!product.inStock || isInCart ? 'disabled' : ''}" 
                             onclick="addToCart(${product.id})"
-                            ${!product.inStock ? 'disabled' : ''}>
-                        ${product.inStock ? '💀 Добавить в корзину' : '⚰️ Нет в наличии'}
+                            ${!product.inStock || isInCart ? 'disabled' : ''}>
+                        ${isInCart ? '✅ В корзине' : product.inStock ? '💀 Добавить в корзину' : '⚰️ Нет в наличии'}
                     </button>
                 `;
                 productsGrid.appendChild(productCard);
@@ -1032,6 +1182,18 @@
 
         function addToCart(productId) {
             const product = allProducts.find(p => p.id === productId);
+            
+            if (!product) {
+                showNotification('❌ Товар не найден!', 'error');
+                return;
+            }
+            
+            // Проверяем, есть ли товар уже в корзине
+            if (isProductInCart(productId)) {
+                showNotification('⚠️ Этот товар уже в корзине!', 'warning');
+                return;
+            }
+            
             if (product && product.inStock) {
                 // Загружаем текущую корзину
                 let cartItems = JSON.parse(localStorage.getItem('eliteTelegramCart') || '[]');
@@ -1046,19 +1208,17 @@
                 // Сохраняем
                 localStorage.setItem('eliteTelegramCart', JSON.stringify(cartItems));
                 
+                // Обновляем локальную переменную
+                loadCartFromStorage();
+                
                 // Показываем уведомление
                 showNotification(`💀 "${product.name}" добавлен в корзину!`, 'success');
                 
                 // Обновляем счетчик
                 updateCartCount();
                 
-                // Анимация кнопки
-                event.target.innerHTML = '💀 Добавлено!';
-                event.target.style.background = 'linear-gradient(45deg, #006400, #008000)';
-                setTimeout(() => {
-                    event.target.innerHTML = '💀 Добавить в корзину';
-                    event.target.style.background = 'linear-gradient(45deg, #8b0000, #ff0000)';
-                }, 2000);
+                // Перерисовываем товары для обновления кнопок
+                displayProductsByCategory();
             }
         }
 
@@ -1089,18 +1249,29 @@
             const notification = document.createElement('div');
             notification.textContent = message;
             
+            let background = 'linear-gradient(45deg, #8b0000, #ff0000)';
+            let color = '#000';
+            
+            if (type === 'error') {
+                background = 'linear-gradient(45deg, #8b0000, #ff0000)';
+            } else if (type === 'success') {
+                background = 'linear-gradient(45deg, #006400, #008000)';
+            } else if (type === 'warning') {
+                background = 'linear-gradient(45deg, #ff8c00, #ffa500)';
+            }
+            
             notification.style.cssText = `
                 position: fixed;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: rgba(0,0,0,0.95);
-                color: #00ff00;
+                background: ${background};
+                color: ${color};
                 padding: 20px 35px;
                 border-radius: 15px;
                 z-index: 1000;
                 font-size: 1.1em;
-                border: 2px solid #00ff00;
+                border: 2px solid ${type === 'success' ? '#00ff00' : type === 'warning' ? '#ffa500' : '#ff0000'};
                 text-align: center;
                 max-width: 90%;
                 word-wrap: break-word;
@@ -1140,12 +1311,15 @@
         function handleScroll() {
             const indicator = document.getElementById('sectionIndicator');
             const filters = document.querySelector('.filters');
-            const filtersRect = filters.getBoundingClientRect();
             
-            if (filtersRect.top < 100) {
-                indicator.classList.add('visible');
-            } else {
-                indicator.classList.remove('visible');
+            if (filters) {
+                const filtersRect = filters.getBoundingClientRect();
+                
+                if (filtersRect.top < 100) {
+                    indicator.classList.add('visible');
+                } else {
+                    indicator.classList.remove('visible');
+                }
             }
         }
 
