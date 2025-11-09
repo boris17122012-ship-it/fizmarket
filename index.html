@@ -22,6 +22,7 @@
             --hover-color: #555555;
             --success-color: #00ff00;
             --error-color: #ff0000;
+            --device-info-color: #888888;
         }
 
         body {
@@ -35,455 +36,236 @@
             line-height: 1.6;
         }
 
+        .device-info {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+            color: var(--device-info-color);
+            font-size: 10px;
+            z-index: 1000;
+            background: rgba(0,0,0,0.7);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
         /* Мобильные стили */
         @media (max-width: 768px) {
             body {
-                font-size: 16px;
-                padding: 8px;
+                font-size: 14px;
+                padding: 5px;
+            }
+            
+            .device-info {
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
             }
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 15px;
+            padding: 10px;
         }
 
         /* Мобильный контейнер */
         @media (max-width: 768px) {
             .container {
-                padding: 8px;
-                max-width: 100%;
+                padding: 5px;
             }
         }
 
         .header {
             text-align: center;
-            margin-bottom: 25px;
-            padding: 30px 15px;
+            margin-bottom: 15px;
+            padding: 20px 10px;
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 10px;
             border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
         }
 
         /* Мобильный хедер */
         @media (max-width: 768px) {
             .header {
-                padding: 20px 12px;
-                margin-bottom: 15px;
-                border-radius: 10px;
+                padding: 15px 8px;
+                margin-bottom: 10px;
+                border-radius: 8px;
             }
             
             .header h1 {
-                font-size: 1.6em !important;
-                line-height: 1.2;
-                margin-bottom: 8px;
+                font-size: 1.4em !important;
+                margin-bottom: 5px;
             }
             
             .header p {
-                font-size: 0.9em !important;
-                line-height: 1.4;
-                margin-bottom: 12px;
+                font-size: 0.85em !important;
+                margin-bottom: 8px;
             }
         }
 
         .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 12px;
+            font-size: 1.8em;
+            margin-bottom: 8px;
             color: var(--secondary-color);
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .header p {
             color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-size: 0.95em;
         }
 
         .stats {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 10px;
             flex-wrap: wrap;
         }
 
         /* Мобильные статусы */
         @media (max-width: 768px) {
             .stats {
-                gap: 8px;
-                margin-top: 12px;
+                gap: 5px;
+                margin-top: 8px;
             }
             
             .stat-item {
-                padding: 8px 12px !important;
-                font-size: 0.85em;
+                padding: 6px 10px !important;
+                font-size: 0.8em;
                 flex: 1;
-                min-width: 45%;
+                min-width: 48%;
                 text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .stat-item {
-                min-width: 100%;
             }
         }
 
         .stat-item {
             background: var(--accent-color);
-            padding: 10px 18px;
-            border-radius: 20px;
+            padding: 8px 15px;
+            border-radius: 15px;
             border: 1px solid var(--border-color);
             font-weight: 500;
             color: var(--text-secondary);
-            transition: all 0.3s ease;
+            font-size: 0.85em;
         }
 
         .cart-link {
             display: inline-block;
             background: var(--secondary-color);
             color: var(--primary-color);
-            padding: 12px 24px;
-            border-radius: 25px;
+            padding: 10px 20px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 0.5px;
+            margin-top: 10px;
+            font-size: 0.85em;
         }
 
         /* Мобильная кнопка корзины */
         @media (max-width: 768px) {
             .cart-link {
-                padding: 14px 20px;
+                padding: 12px;
                 width: 100%;
                 text-align: center;
-                margin-top: 12px;
-                font-size: 0.85em;
+                margin-top: 8px;
+                font-size: 0.8em;
             }
-        }
-
-        .cart-link:hover {
-            background: var(--hover-color);
-            color: var(--secondary-color);
         }
 
         .navigation {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 25px;
+            gap: 8px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
 
         /* Мобильная навигация */
         @media (max-width: 768px) {
             .navigation {
-                gap: 6px;
-                margin-bottom: 15px;
+                gap: 5px;
+                margin-bottom: 10px;
             }
             
             .nav-btn {
-                padding: 10px 14px !important;
-                font-size: 0.8em;
-                flex: 1;
-                min-width: 45%;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-btn {
-                min-width: 100%;
+                padding: 8px 12px !important;
                 font-size: 0.75em;
+                flex: 1;
+                min-width: 48%;
+                text-align: center;
             }
         }
 
         .nav-btn {
             background: var(--accent-color);
             border: 1px solid var(--border-color);
-            padding: 12px 20px;
-            border-radius: 20px;
+            padding: 10px 15px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
             font-weight: 500;
             color: var(--text-secondary);
             text-decoration: none;
             display: inline-block;
-            text-transform: uppercase;
-            font-size: 0.85em;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-btn:hover {
-            background: var(--hover-color);
+            font-size: 0.8em;
+            transition: all 0.3s ease;
         }
 
         .nav-btn.active {
             background: var(--secondary-color);
             color: var(--primary-color);
-            border: 1px solid var(--secondary-color);
         }
 
         .section-title {
             text-align: center;
-            margin: 35px 0 20px;
-            padding: 25px;
+            margin: 20px 0 15px;
+            padding: 15px;
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
         }
 
         /* Мобильные заголовки секций */
         @media (max-width: 768px) {
             .section-title {
-                margin: 25px 0 15px;
-                padding: 18px 12px;
-                border-radius: 10px;
+                margin: 15px 0 10px;
+                padding: 12px 8px;
+                border-radius: 6px;
             }
             
             .section-title h2 {
-                font-size: 1.4em !important;
+                font-size: 1.2em !important;
             }
             
             .section-title p {
-                font-size: 0.9em !important;
+                font-size: 0.8em !important;
             }
         }
 
         .section-title h2 {
-            font-size: 1.8em;
-            margin-bottom: 8px;
+            font-size: 1.4em;
+            margin-bottom: 5px;
             color: var(--secondary-color);
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .section-title p {
             color: var(--text-secondary);
-            font-size: 1em;
-        }
-
-        .support-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        /* Мобильная секция поддержки */
-        @media (max-width: 768px) {
-            .support-section {
-                padding: 20px 12px;
-                margin: 20px 0;
-                border-radius: 10px;
-            }
-        }
-
-        .support-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        /* Мобильные карточки поддержки */
-        @media (max-width: 768px) {
-            .support-cards {
-                grid-template-columns: 1fr;
-                gap: 12px;
-                margin-top: 18px;
-            }
-        }
-
-        .support-card {
-            background: var(--accent-color);
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        /* Мобильные карточки */
-        @media (max-width: 768px) {
-            .support-card {
-                padding: 18px 12px;
-                border-radius: 10px;
-            }
-            
-            .support-card h3 {
-                font-size: 1.1em !important;
-            }
-        }
-
-        .support-card:hover {
-            background: var(--hover-color);
-        }
-
-        .support-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            font-size: 1.3em;
-            font-weight: 600;
-        }
-
-        .support-card p {
-            color: var(--text-secondary);
-            margin-bottom: 18px;
-            line-height: 1.5;
-            font-size: 0.95em;
-        }
-
-        .support-btn {
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            border: none;
-            padding: 12px 24px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            width: 100%;
-            text-transform: uppercase;
             font-size: 0.85em;
-            letter-spacing: 0.5px;
-        }
-
-        /* Мобильные кнопки */
-        @media (max-width: 768px) {
-            .support-btn {
-                padding: 14px 20px;
-                font-size: 0.8em;
-            }
-        }
-
-        .support-btn:hover {
-            background: var(--hover-color);
-            color: var(--secondary-color);
-        }
-
-        .reviews-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 1px solid var(--border-color);
-        }
-
-        /* Мобильная секция отзывов */
-        @media (max-width: 768px) {
-            .reviews-section {
-                padding: 20px 12px;
-                margin: 20px 0;
-                border-radius: 10px;
-            }
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        /* Мобильная сетка отзывов */
-        @media (max-width: 768px) {
-            .reviews-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-                margin-top: 18px;
-            }
-        }
-
-        .review-card {
-            background: var(--accent-color);
-            border-radius: 10px;
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        /* Мобильные карточки отзывов */
-        @media (max-width: 768px) {
-            .review-card {
-                padding: 16px 12px;
-                border-radius: 8px;
-            }
-        }
-
-        .review-card:hover {
-            background: var(--hover-color);
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        /* Мобильный заголовок отзыва */
-        @media (max-width: 480px) {
-            .review-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-            }
-        }
-
-        .review-user {
-            color: var(--secondary-color);
-            font-weight: bold;
-            font-size: 1em;
-        }
-
-        .review-date {
-            color: var(--text-secondary);
-            font-size: 0.85em;
-        }
-
-        .review-rating {
-            color: var(--secondary-color);
-            margin: 8px 0;
-            font-size: 0.9em;
-        }
-
-        .review-text {
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 12px;
-            font-size: 0.95em;
-        }
-
-        .review-product {
-            color: var(--text-secondary);
-            font-size: 0.85em;
-            border-top: 1px solid var(--border-color);
-            padding-top: 8px;
         }
 
         .filters {
             background: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
             border: 1px solid var(--border-color);
             display: flex;
-            gap: 12px;
+            gap: 8px;
             flex-wrap: wrap;
             align-items: center;
         }
@@ -491,146 +273,111 @@
         /* Мобильные фильтры */
         @media (max-width: 768px) {
             .filters {
-                padding: 15px 12px;
-                border-radius: 10px;
-                margin-bottom: 18px;
-                gap: 8px;
+                padding: 10px 8px;
+                border-radius: 6px;
+                margin-bottom: 10px;
+                gap: 5px;
             }
             
             .filter-btn {
                 flex: 1;
-                min-width: 45%;
+                min-width: 48%;
                 text-align: center;
-                padding: 10px 12px !important;
-                font-size: 0.8em;
+                padding: 8px 10px !important;
+                font-size: 0.75em;
             }
             
             .refresh-btn {
                 width: 100%;
                 margin-left: 0 !important;
-                margin-top: 8px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .filter-btn {
-                min-width: 100%;
+                margin-top: 5px;
             }
         }
 
         .filter-btn {
             background: var(--accent-color);
             border: 1px solid var(--border-color);
-            padding: 10px 18px;
-            border-radius: 20px;
+            padding: 8px 12px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
             font-weight: 500;
             color: var(--text-secondary);
-            text-transform: uppercase;
-            font-size: 0.8em;
-            letter-spacing: 0.5px;
+            font-size: 0.75em;
+            transition: all 0.3s ease;
         }
 
         .filter-btn.active {
             background: var(--secondary-color);
             color: var(--primary-color);
-            border: 1px solid var(--secondary-color);
-        }
-
-        .filter-btn:hover {
-            background: var(--hover-color);
         }
 
         .refresh-btn {
             background: var(--secondary-color);
             color: var(--primary-color);
             border: none;
-            padding: 12px 24px;
-            border-radius: 20px;
+            padding: 10px 15px;
+            border-radius: 15px;
             cursor: pointer;
             font-weight: bold;
             margin-left: auto;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.85em;
-            letter-spacing: 0.5px;
-        }
-
-        .refresh-btn:hover {
-            background: var(--hover-color);
-            color: var(--secondary-color);
+            font-size: 0.8em;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         /* Мобильная сетка товаров */
         @media (max-width: 768px) {
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 12px;
-                margin-bottom: 25px;
+                gap: 8px;
+                margin-bottom: 15px;
             }
         }
 
         .product-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 15px;
             border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         /* Мобильные карточки товаров */
         @media (max-width: 768px) {
             .product-card {
-                padding: 16px 12px;
-                border-radius: 10px;
+                padding: 12px 10px;
+                border-radius: 6px;
             }
             
             .product-card h3 {
-                font-size: 1.1em !important;
+                font-size: 1em !important;
             }
-        }
-
-        .product-card:hover {
-            background: var(--hover-color);
         }
 
         .product-card h3 {
             color: var(--secondary-color);
-            margin-bottom: 10px;
-            font-size: 1.3em;
+            margin-bottom: 8px;
+            font-size: 1.1em;
             font-weight: 600;
         }
 
         .product-card p {
             color: var(--text-secondary);
-            margin-bottom: 12px;
-            line-height: 1.5;
-            font-size: 0.95em;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            font-size: 0.85em;
         }
 
         .product-meta {
             display: flex;
             justify-content: space-between;
-            margin: 12px 0;
-            font-size: 0.9em;
-        }
-
-        /* Мобильная мета-информация */
-        @media (max-width: 480px) {
-            .product-meta {
-                flex-direction: column;
-                gap: 4px;
-            }
+            margin: 8px 0;
+            font-size: 0.8em;
         }
 
         .seller {
@@ -644,12 +391,12 @@
         }
 
         .price-section {
-            margin: 15px 0;
+            margin: 10px 0;
             text-align: center;
         }
 
         .price {
-            font-size: 1.8em;
+            font-size: 1.4em;
             color: var(--secondary-color);
             font-weight: bold;
         }
@@ -657,24 +404,24 @@
         /* Мобильная цена */
         @media (max-width: 768px) {
             .price {
-                font-size: 1.5em;
+                font-size: 1.2em;
             }
         }
 
         .original-price {
             text-decoration: line-through;
             color: var(--text-secondary);
-            font-size: 1em;
-            margin-top: 4px;
+            font-size: 0.9em;
+            margin-top: 2px;
         }
 
         .stock-status {
-            padding: 8px 12px;
-            border-radius: 20px;
+            padding: 6px 10px;
+            border-radius: 15px;
             font-weight: 500;
             text-align: center;
-            margin: 12px 0;
-            font-size: 0.85em;
+            margin: 8px 0;
+            font-size: 0.8em;
         }
 
         .in-stock {
@@ -689,82 +436,17 @@
             border: 1px solid rgba(255, 0, 0, 0.3);
         }
 
-        .reviews {
-            margin: 12px 0;
-            padding: 12px;
-            background: var(--accent-color);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .review-item {
-            padding: 6px 0;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.85em;
-        }
-
-        .review-item:last-child {
-            border-bottom: none;
-        }
-
-        .review-user {
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .review-date {
-            color: var(--text-secondary);
-            font-size: 0.8em;
-            margin-left: 8px;
-        }
-
-        .review-text {
-            color: var(--text-secondary);
-            margin-top: 2px;
-        }
-
-        .product-source {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 12px 0;
-            font-size: 0.8em;
-        }
-
-        .lzt-badge {
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.75em;
-            letter-spacing: 0.5px;
-        }
-
-        .update-time {
-            color: var(--text-secondary);
-        }
-
         .btn {
             background: var(--secondary-color);
             color: var(--primary-color);
             border: none;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 1em;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9em;
             cursor: pointer;
             width: 100%;
-            transition: all 0.3s ease;
             font-weight: bold;
-            margin: 8px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .btn:hover {
-            background: var(--hover-color);
-            color: var(--secondary-color);
+            margin: 6px 0;
         }
 
         .btn.disabled {
@@ -773,197 +455,95 @@
             cursor: not-allowed;
         }
 
-        .cart-notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 14px 24px;
-            border-radius: 20px;
-            font-weight: bold;
-            z-index: 1000;
-            display: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            animation: slideIn 0.3s ease-out;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 0.5px;
-        }
-
-        /* Мобильные уведомления */
-        @media (max-width: 768px) {
-            .cart-notification {
-                top: 10px;
-                right: 10px;
-                left: 10px;
-                text-align: center;
-                padding: 12px 18px;
-                font-size: 0.8em;
-            }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
         .footer {
             text-align: center;
             color: var(--text-secondary);
-            margin-top: 40px;
-            padding: 25px;
+            margin-top: 20px;
+            padding: 15px;
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
+            font-size: 0.85em;
         }
 
         /* Мобильный футер */
         @media (max-width: 768px) {
             .footer {
-                margin-top: 25px;
-                padding: 18px 12px;
-                border-radius: 10px;
-            }
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 18px;
-            flex-wrap: wrap;
-        }
-
-        /* Мобильные ссылки футера */
-        @media (max-width: 768px) {
-            .footer-links {
-                gap: 12px;
-            }
-            
-            .footer-link {
-                padding: 6px 10px;
+                margin-top: 15px;
+                padding: 12px 8px;
+                border-radius: 6px;
                 font-size: 0.8em;
             }
         }
 
-        .footer-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 15px;
-            background: var(--accent-color);
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.85em;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-link:hover {
-            background: var(--hover-color);
-        }
-
-        .loading {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 1.1em;
-            padding: 30px;
-        }
-
-        .loading-spinner {
-            border: 4px solid var(--accent-color);
-            border-radius: 50%;
-            border-top: 4px solid var(--secondary-color);
-            width: 35px;
-            height: 35px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Дополнительные мобильные улучшения */
-        @media (max-width: 768px) {
-            /* Улучшение читаемости текста */
-            * {
-                -webkit-text-size-adjust: 100%;
-            }
-            
-            /* Улучшение касаний */
-            button, .btn, .nav-btn, .filter-btn {
-                min-height: 44px;
-                min-width: 44px;
-            }
-        }
-
-        /* Кнопка развернуть отзывы */
-        .expand-reviews-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 8px 16px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 0.85em;
-            margin-top: 8px;
-            transition: all 0.3s ease;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .expand-reviews-btn:hover {
-            background: var(--hover-color);
-        }
-
-        .hidden-reviews {
-            display: none;
-        }
-
-        /* Контакты в футере */
         .footer-contacts {
-            margin-top: 18px;
+            margin-top: 10px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
         .contact-item {
             background: var(--accent-color);
-            padding: 10px 16px;
-            border-radius: 15px;
+            padding: 6px 10px;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            font-size: 0.9em;
-        }
-
-        .contact-item:hover {
-            background: var(--hover-color);
+            font-size: 0.8em;
         }
 
         @media (max-width: 768px) {
             .footer-contacts {
-                gap: 10px;
+                gap: 5px;
             }
             
             .contact-item {
-                padding: 8px 12px;
+                padding: 5px 8px;
+                font-size: 0.75em;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .cart-notification {
+            position: fixed;
+            top: 30px;
+            right: 10px;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            z-index: 1000;
+            display: none;
+            font-size: 0.85em;
+        }
+
+        /* Мобильные уведомления */
+        @media (max-width: 768px) {
+            .cart-notification {
+                top: 25px;
+                right: 5px;
+                left: 5px;
+                text-align: center;
+                padding: 8px 10px;
                 font-size: 0.8em;
             }
         }
     </style>
 </head>
 <body>
+    <div class="device-info" id="deviceInfo"></div>
+
     <div class="container">
         <div class="header">
             <h1>ELITE TELEGRAM SHOP</h1>
-            <p>Премиум аккаунты и услуги • Звезды 1=1.7₽ • Telegram Premium</p>
+            <p>Премиум аккаунты и услуги • Звезды 1=1.29₽ • Telegram Premium</p>
             
             <div class="stats">
                 <div class="stat-item">Время: <span id="currentTime">--:--:--</span></div>
@@ -972,38 +552,37 @@
                 <div class="stat-item">TON Only</div>
             </div>
 
-            <a href="cart.html" class="cart-link" id="cartLink">
+            <a href="#cart" class="cart-link" id="cartLink">
                 Перейти в корзину (<span id="headerCartCount">0</span>)
             </a>
         </div>
 
         <div class="navigation">
-            <a href="#numbers-section" class="nav-btn">Номера</a>
+            <a href="#numbers-section" class="nav-btn active">Номера</a>
             <a href="#stars-section" class="nav-btn">Звезды</a>
             <a href="#telegram-section" class="nav-btn">Telegram Premium</a>
             <a href="#support-section" class="nav-btn">Поддержка</a>
-            <a href="#reviews-section" class="nav-btn">Отзывы</a>
         </div>
 
         <!-- Раздел Номера -->
         <div class="section-title" id="numbers-section">
             <h2>ТЕЛЕФОННЫЕ НОМЕРА</h2>
-            <p>Более 1000 номеров со всего мира • Цены от 90₽ до 700₽ • Регистрация 2014-2025</p>
+            <p>Более 400 номеров со всего мира • Цены от 90₽ до 700₽ • Регистрация 2014-2025</p>
         </div>
 
         <div class="filters">
-            <button class="filter-btn active" onclick="setFilter('all')">Все номера</button>
-            <button class="filter-btn" onclick="setFilter('budget')">Бюджетные (90-200₽)</button>
-            <button class="filter-btn" onclick="setFilter('premium')">Премиум (201-700₽)</button>
+            <button class="filter-btn active" onclick="setFilter('all')">Все</button>
+            <button class="filter-btn" onclick="setFilter('budget')">Бюджетные</button>
+            <button class="filter-btn" onclick="setFilter('premium')">Премиум</button>
+            <button class="filter-btn" onclick="setFilter('russia')">Россия</button>
             <button class="filter-btn" onclick="setFilter('europe')">Европа</button>
             <button class="filter-btn" onclick="setFilter('asia')">Азия</button>
-            <button class="filter-btn" onclick="setFilter('usa')">США/Канада</button>
+            <button class="filter-btn" onclick="setFilter('usa')">США</button>
             <button class="refresh-btn" onclick="loadProducts()">Обновить</button>
         </div>
 
         <div class="products-grid" id="numbersProducts">
             <div class="loading">
-                <div class="loading-spinner"></div>
                 <p>Загрузка номеров...</p>
             </div>
         </div>
@@ -1011,12 +590,11 @@
         <!-- Раздел Звезды -->
         <div class="section-title" id="stars-section">
             <h2>ЗВЕЗДЫ TELEGRAM</h2>
-            <p>Звезды для донатов и покупок в Telegram • Курс 1 звезда = 1.7₽</p>
+            <p>Звезды для донатов и покупок в Telegram • Курс 1 звезда = 1.29₽</p>
         </div>
 
         <div class="products-grid" id="starsProducts">
             <div class="loading">
-                <div class="loading-spinner"></div>
                 <p>Загрузка звезд...</p>
             </div>
         </div>
@@ -1029,45 +607,14 @@
 
         <div class="products-grid" id="telegramProducts">
             <div class="loading">
-                <div class="loading-spinner"></div>
                 <p>Загрузка подписок...</p>
             </div>
         </div>
 
         <!-- Секция поддержки -->
-        <div class="support-section" id="support-section">
+        <div class="section-title" id="support-section">
             <h2>ПОДДЕРЖКА 24/7</h2>
             <p>Наша команда всегда готова помочь с любыми вопросами</p>
-            
-            <div class="support-cards">
-                <div class="support-card">
-                    <h3>Telegram Support</h3>
-                    <p>Мгновенная помощь в Telegram чате</p>
-                    <button class="support-btn" onclick="openSupport('telegram')">Написать в поддержку</button>
-                </div>
-                
-                <div class="support-card">
-                    <h3>Email Support</h3>
-                    <p>Ответ в течение 2 часов на вашу почту</p>
-                    <button class="support-btn" onclick="openSupport('email')">Отправить email</button>
-                </div>
-                
-                <div class="support-card">
-                    <h3>FAQ & Guides</h3>
-                    <p>Подробные инструкции и ответы на вопросы</p>
-                    <button class="support-btn" onclick="openSupport('faq')">Открыть FAQ</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Секция отзывов -->
-        <div class="reviews-section" id="reviews-section">
-            <h2>ОТЗЫВЫ ПОКУПАТЕЛЕЙ</h2>
-            <p>Более 5000 довольных клиентов по всему миру</p>
-            
-            <div class="reviews-grid" id="reviewsGrid">
-                <!-- Отзывы будут загружены динамически -->
-            </div>
         </div>
 
         <div class="footer">
@@ -1079,13 +626,6 @@
                 <div class="contact-item">Telegram: @awoeg</div>
                 <div class="contact-item">Telegram: @buygiftscool</div>
             </div>
-            
-            <div class="footer-links">
-                <a href="cart.html" class="footer-link">Корзина</a>
-                <a href="#support-section" class="footer-link">Поддержка</a>
-                <a href="#reviews-section" class="footer-link">Отзывы</a>
-                <a href="#numbers-section" class="footer-link">Номера</a>
-            </div>
         </div>
     </div>
 
@@ -1094,60 +634,256 @@
     </div>
 
     <script>
-        // Упрощенная версия JavaScript для демонстрации
-        document.addEventListener('DOMContentLoaded', function() {
-            // Обновление времени
-            function updateTime() {
-                const now = new Date();
-                const timeString = now.toLocaleTimeString('ru-RU');
-                document.getElementById('currentTime').textContent = timeString;
+        // Определение устройства
+        function detectDevice() {
+            const ua = navigator.userAgent;
+            let device = "Неизвестное устройство";
+            
+            if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry/.test(ua)) {
+                device = "Мобильное устройство";
+                if (/Android/.test(ua)) device = "Android устройство";
+                if (/iPhone|iPad/.test(ua)) device = "iOS устройство";
+            } else if (/Tablet|iPad/.test(ua)) {
+                device = "Планшет";
+            } else {
+                device = "Компьютер";
             }
             
-            setInterval(updateTime, 1000);
-            updateTime();
+            const screen = `Экран: ${screen.width}x${screen.height}`;
+            document.getElementById('deviceInfo').textContent = `${device} | ${screen}`;
+        }
+
+        // Массив из 400 номеров
+        const phoneNumbers = generatePhoneNumbers(400);
+        
+        // Звезды Telegram
+        const starsProducts = [
+            {id: 3001, name: "100 Stars Telegram", description: "100 звезд для Telegram", price: Math.round(100 * 1.29), originalPrice: 150, seller: "Stars_Provider", rating: 4.8, inStock: true, category: "stars"},
+            {id: 3002, name: "500 Stars Telegram", description: "500 звезд для Telegram", price: Math.round(500 * 1.29), originalPrice: 700, seller: "Stars_Provider", rating: 4.8, inStock: true, category: "stars"},
+            {id: 3003, name: "1000 Stars Telegram", description: "1000 звезд для Telegram", price: Math.round(1000 * 1.29), originalPrice: 1400, seller: "Stars_Provider", rating: 4.9, inStock: true, category: "stars"},
+            {id: 3004, name: "5000 Stars Telegram", description: "5000 звезд для Telegram", price: Math.round(5000 * 1.29), originalPrice: 7000, seller: "Stars_Provider", rating: 4.9, inStock: true, category: "stars"},
+            {id: 3005, name: "10000 Stars Telegram", description: "10000 звезд для Telegram", price: Math.round(10000 * 1.29), originalPrice: 14000, seller: "Stars_Provider", rating: 5.0, inStock: true, category: "stars"}
+        ];
+
+        // Telegram Premium
+        const telegramProducts = [
+            {id: 4001, name: "Telegram Premium 1 Month", description: "Премиум подписка на 1 месяц", price: 299, originalPrice: 399, seller: "Telegram_Official", rating: 4.9, inStock: true, category: "telegram"},
+            {id: 4002, name: "Telegram Premium 3 Months", description: "Премиум подписка на 3 месяца", price: 799, originalPrice: 999, seller: "Telegram_Official", rating: 4.9, inStock: true, category: "telegram"},
+            {id: 4003, name: "Telegram Premium 12 Months", description: "Премиум подписка на 12 месяцев", price: 2499, originalPrice: 2999, seller: "Telegram_Official", rating: 4.9, inStock: true, category: "telegram"}
+        ];
+
+        function generatePhoneNumbers(count) {
+            const countries = [
+                {name: "Russia", code: "+7", priceRange: [90, 700]},
+                {name: "USA", code: "+1", priceRange: [150, 800]},
+                {name: "Ukraine", code: "+380", priceRange: [95, 500]},
+                {name: "Germany", code: "+49", priceRange: [180, 600]},
+                {name: "UK", code: "+44", priceRange: [190, 700]},
+                {name: "France", code: "+33", priceRange: [170, 550]},
+                {name: "China", code: "+86", priceRange: [130, 500]},
+                {name: "Japan", code: "+81", priceRange: [200, 650]},
+                {name: "Korea", code: "+82", priceRange: [190, 600]},
+                {name: "India", code: "+91", priceRange: [95, 400]}
+            ];
             
-            // Заглушки для функций
-            window.setFilter = function(filter) {
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
+            const numbers = [];
+            for (let i = 1; i <= count; i++) {
+                const country = countries[Math.floor(Math.random() * countries.length)];
+                const isBudget = Math.random() > 0.5;
+                const price = isBudget ? 
+                    Math.floor(country.priceRange[0] + Math.random() * 50) :
+                    Math.floor(country.priceRange[0] + 100 + Math.random() * (country.priceRange[1] - country.priceRange[0] - 100));
+                
+                numbers.push({
+                    id: i,
+                    name: `${country.name} ${country.code}`,
+                    description: `Номер ${country.name}, регистрация ${2014 + Math.floor(Math.random() * 12)}`,
+                    price: price,
+                    originalPrice: price + Math.floor(Math.random() * 100) + 50,
+                    seller: `${country.name}_Provider`,
+                    rating: 4 + Math.random(),
+                    inStock: Math.random() > 0.1,
+                    category: isBudget ? `${country.name.toLowerCase()} budget` : `${country.name.toLowerCase()} premium`,
+                    regYear: 2014 + Math.floor(Math.random() * 12),
+                    reviews: Math.floor(Math.random() * 500) + 50
                 });
-                event.target.classList.add('active');
-                // Здесь будет логика фильтрации
-            };
+            }
+            return numbers;
+        }
+
+        let cartItems = [];
+        let currentFilter = 'all';
+
+        function loadProducts() {
+            displayProductsByCategory();
+            updateTime();
+        }
+
+        function displayProductsByCategory() {
+            // Номера
+            displayProductsInGrid('numbersProducts', phoneNumbers);
             
-            window.loadProducts = function() {
-                // Здесь будет логика загрузки товаров
-                document.getElementById('productCount').textContent = '1250';
-            };
+            // Звезды
+            displayProductsInGrid('starsProducts', starsProducts);
             
-            window.openSupport = function(type) {
-                switch(type) {
-                    case 'telegram':
-                        window.open('https://t.me/elite_telegram_support', '_blank');
-                        break;
-                    case 'email':
-                        window.location.href = 'mailto:support@elite-telegram-shop.ru';
-                        break;
-                    case 'faq':
-                        showNotification('FAQ скоро будет доступен!', 'info');
-                        break;
-                }
-            };
+            // Telegram Premium
+            displayProductsInGrid('telegramProducts', telegramProducts);
             
-            window.showNotification = function(message, type = 'info') {
-                const notification = document.getElementById('cartNotification');
-                if (!notification) return;
+            // Общее количество
+            const totalProducts = phoneNumbers.length + starsProducts.length + telegramProducts.length;
+            document.getElementById('productCount').textContent = totalProducts;
+        }
+
+        function displayProductsInGrid(gridId, products) {
+            const productsGrid = document.getElementById(gridId);
+            if (!productsGrid) return;
+            
+            productsGrid.innerHTML = '';
+            
+            const filteredProducts = filterProducts(products);
+            
+            if (filteredProducts.length === 0) {
+                productsGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; color: #cccccc; padding: 20px;">
+                        <h3>Товары не найдены</h3>
+                        <p>Измените фильтры или попробуйте другой раздел</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredProducts.slice(0, 20).forEach((product) => {
+                const isInCart = isProductInCart(product.id);
                 
-                notification.textContent = message;
-                notification.style.display = 'block';
-                
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                }, 3000);
-            };
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    
+                    ${product.regYear ? `<p style="color: #888; margin-bottom: 5px; font-size: 0.8em;">Год регистрации: ${product.regYear}</p>` : ''}
+                    
+                    <div class="product-meta">
+                        <div class="seller">${product.seller}</div>
+                        <div class="rating">${product.rating.toFixed(1)} (${product.reviews})</div>
+                    </div>
+                    
+                    <div class="price-section">
+                        <div class="price">${product.price} ₽</div>
+                        ${product.originalPrice > product.price ? 
+                            `<div class="original-price">${product.originalPrice} ₽</div>` : ''}
+                    </div>
+                    
+                    <div class="stock-status ${product.inStock ? 'in-stock' : 'out-of-stock'}">
+                        ${product.inStock ? 'В наличии' : 'Нет в наличии'}
+                    </div>
+                    
+                    <button class="btn ${!product.inStock || isInCart ? 'disabled' : ''}" 
+                            onclick="addToCart(${product.id})"
+                            ${!product.inStock || isInCart ? 'disabled' : ''}>
+                        ${isInCart ? 'В корзине' : product.inStock ? 'Добавить в корзину' : 'Нет в наличии'}
+                    </button>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+        }
+
+        function filterProducts(products) {
+            if (products[0].category === 'stars' || products[0].category === 'telegram') {
+                return products;
+            }
             
-            // Инициализация
+            switch(currentFilter) {
+                case 'budget': return products.filter(p => p.price <= 200);
+                case 'premium': return products.filter(p => p.price > 200);
+                case 'russia': return products.filter(p => p.category.includes('russia'));
+                case 'europe': return products.filter(p => 
+                    p.category.includes('germany') || p.category.includes('uk') || 
+                    p.category.includes('france'));
+                case 'asia': return products.filter(p => 
+                    p.category.includes('china') || p.category.includes('japan') || 
+                    p.category.includes('korea') || p.category.includes('india'));
+                case 'usa': return products.filter(p => p.category.includes('usa'));
+                default: return products;
+            }
+        }
+
+        function setFilter(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            displayProductsByCategory();
+        }
+
+        function isProductInCart(productId) {
+            return cartItems.some(item => item.id === productId);
+        }
+
+        function addToCart(productId) {
+            let product;
+            
+            product = phoneNumbers.find(p => p.id === productId) ||
+                     starsProducts.find(p => p.id === productId) ||
+                     telegramProducts.find(p => p.id === productId);
+            
+            if (!product) {
+                showNotification('Товар не найден!', 'error');
+                return;
+            }
+            
+            if (isProductInCart(productId)) {
+                showNotification('Этот товар уже в корзине!', 'warning');
+                return;
+            }
+            
+            if (product && product.inStock) {
+                cartItems.push({
+                    ...product,
+                    cartId: Date.now()
+                });
+                
+                showNotification(`"${product.name}" добавлен в корзину!`, 'success');
+                updateCartCount();
+                displayProductsByCategory();
+            }
+        }
+
+        function updateCartCount() {
+            document.querySelectorAll('#cartCount, #headerCartCount').forEach(el => {
+                if (el) el.textContent = cartItems.length;
+            });
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('cartNotification');
+            if (!notification) return;
+            
+            notification.textContent = message;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ru-RU');
+            document.getElementById('currentTime').textContent = timeString;
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            detectDevice();
             loadProducts();
+            
+            // Обновление времени каждую секунду
+            setInterval(updateTime, 1000);
+            
+            // Обработчик изменения размера
+            window.addEventListener('resize', detectDevice);
         });
     </script>
 </body>
