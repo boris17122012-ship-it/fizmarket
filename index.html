@@ -23,6 +23,7 @@
             --success-color: #00ff00;
             --error-color: #ff0000;
             --device-info-color: #888888;
+            --bot-color: #0088cc;
         }
 
         body {
@@ -164,17 +165,47 @@
             font-weight: bold;
             margin-top: 10px;
             font-size: 0.85em;
+            transition: all 0.3s ease;
         }
 
-        /* Мобильная кнопка корзины */
+        .bot-link {
+            display: inline-block;
+            background: var(--bot-color);
+            color: var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+
+        /* Мобильные кнопки */
         @media (max-width: 768px) {
-            .cart-link {
+            .cart-link, .bot-link {
                 padding: 12px;
                 width: 100%;
                 text-align: center;
                 margin-top: 8px;
                 font-size: 0.8em;
+                margin-left: 0;
             }
+            
+            .header-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        .cart-link:hover {
+            background: var(--hover-color);
+        }
+
+        .bot-link:hover {
+            background: #006699;
         }
 
         .navigation {
@@ -447,12 +478,52 @@
             width: 100%;
             font-weight: bold;
             margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--hover-color);
+            color: var(--secondary-color);
         }
 
         .btn.disabled {
             background: var(--accent-color);
             color: var(--text-secondary);
             cursor: not-allowed;
+        }
+
+        .bot-section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .bot-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .bot-feature {
+            background: var(--accent-color);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .bot-feature h4 {
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .bot-feature p {
+            color: var(--text-secondary);
+            font-size: 0.85em;
         }
 
         .footer {
@@ -500,6 +571,10 @@
             .contact-item {
                 padding: 5px 8px;
                 font-size: 0.75em;
+            }
+            
+            .bot-features {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -552,16 +627,51 @@
                 <div class="stat-item">TON Only</div>
             </div>
 
-            <a href="#cart" class="cart-link" id="cartLink">
-                Перейти в корзину (<span id="headerCartCount">0</span>)
-            </a>
+            <div class="header-buttons">
+                <a href="#cart" class="cart-link" id="cartLink">
+                    Перейти в корзину (<span id="headerCartCount">0</span>)
+                </a>
+                <a href="https://t.me/awoegsince_bot" class="bot-link" target="_blank">
+                    🤖 Наш Telegram бот @awoegsince_bot
+                </a>
+            </div>
         </div>
 
         <div class="navigation">
             <a href="#numbers-section" class="nav-btn active">Номера</a>
             <a href="#stars-section" class="nav-btn">Звезды</a>
             <a href="#telegram-section" class="nav-btn">Telegram Premium</a>
+            <a href="#bot-section" class="nav-btn">Наш бот</a>
             <a href="#support-section" class="nav-btn">Поддержка</a>
+        </div>
+
+        <!-- Секция Telegram бота -->
+        <div class="bot-section" id="bot-section">
+            <h2>🤖 НАШ TELEGRAM БОТ</h2>
+            <p>Автоматизированные покупки 24/7 • Мгновенная выдача • Удобный интерфейс</p>
+            
+            <a href="https://t.me/awoegsince_bot" class="bot-link" target="_blank" style="font-size: 1.1em; padding: 15px 30px;">
+                📲 Перейти в бота @awoegsince_bot
+            </a>
+
+            <div class="bot-features">
+                <div class="bot-feature">
+                    <h4>⚡ Автоматические покупки</h4>
+                    <p>Мгновенная выдача товаров после оплаты</p>
+                </div>
+                <div class="bot-feature">
+                    <h4>🛍️ Удобный каталог</h4>
+                    <p>Весь ассортимент в одном месте</p>
+                </div>
+                <div class="bot-feature">
+                    <h4>💳 Быстрая оплата</h4>
+                    <p>TON, криптовалюты, удобные способы</p>
+                </div>
+                <div class="bot-feature">
+                    <h4>🔄 Авто-обновления</h4>
+                    <p>Всегда актуальные цены и наличие</p>
+                </div>
+            </div>
         </div>
 
         <!-- Раздел Номера -->
@@ -625,6 +735,7 @@
                 <div class="contact-item">Telegram: @kentanex</div>
                 <div class="contact-item">Telegram: @awoeg</div>
                 <div class="contact-item">Telegram: @buygiftscool</div>
+                <div class="contact-item">Бот: @awoegsince_bot</div>
             </div>
         </div>
     </div>
